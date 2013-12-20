@@ -1,0 +1,70 @@
+Idé: Lost in the corn field
+
+Målet är att hitta ut från fältet.
+
+
+3.1
+Namnrymd:	licf (som i "Lost In Corn Field")
+
+a)	Klasshierarki för aktörerna
+
+Actor
+	- hp, go(direction)
+	- virtual: action(), name()
+	- pure virtual: max_hp, type(), fight(Actor), pick_up(Object), drop(Object), talk_to(Actor)
+	
+	Spelare
+		- hold_weight(), hold_volume()
+	
+	Människor
+		- fight(Actor), pick_up(Object), drop(Object), talk_to(Actor)
+		- virtual: action()
+		- pure virtual: name()
+		Bönder
+			- name(), max_hp, type(), action()
+	
+	Djur
+		- pick_up(Object), drop(Object), talk_to(Actor)
+		- pure virtual: fight(Actor), type(), max_hp, action()
+		Fåglar
+		Bin
+		Ormar
+		Spindlar
+		Hund
+/*	Monster
+		Cornflakesgubben
+		Kalaspuffsmonstret */
+
+Environment
+	- pure virtual: direction(), neighbor(direction), description(), enter(Actor), leave(Actor), pick_up(Object), drop(Object)
+
+	Majsfält	
+	Skjul
+	
+
+Object
+	- pure virtual: weight, volume
+	- virtual: use()
+	
+	Traktor
+		- weight, volume, drive()
+	
+	Fågelskrämma
+
+	Vapen
+		- pure virtual: attack_rate()
+		Lie
+		Kniv
+		Rep
+	
+	Hälsokost
+		- pure virtual: healing_rate()
+		Plåster
+		Alvedon
+		Mogen majs
+		Dunderhonung
+	
+	
+	
+	
+	
