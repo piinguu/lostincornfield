@@ -6,9 +6,8 @@ namespace licf {
     	Object();
     	Object(double weight, double volume);
 
-        virtual double weight() = 0;
-
-        virtual double volume() = 0;
+        double weight() { return w; }
+		double volume() { return v; }
 
     protected:
     	double w;
