@@ -1,16 +1,40 @@
 #include "Human.h"
 
+#include "Weapon.h"
+#include<cassert>
+#include<typeinfo>
+
 namespace licf
 {
-	void Human::fight(Actor a)
+	void Human::fight(Actor & a)
 	{
-		//TODO
+		double attack = fist_power;
+		//find best weapon
+		for (auto it = objects.begin(); it != objects.end(); ++it)
+		{
+			try
+			{
+				Object * o = *it;
+				Weapon * w = static_cast<Weapon*>(o);
+				if (w->attack_rate() > attack)
+					attack = w->attack_rate();
+			}
+			catch (const std::bad_cast &) {}
+		}
 		
+		while (hp > 0){
+			a.hp -= attack;
+			std::cout << "Motståndaren har nu " << a.hp << " hp\n";
+			if (a.hp <= 0){
+				std::cout << "Motståndaren dog.\n";
+				a.environment->leave(a);
+			}
+		}
 	}
 	
-	void Human::pick_up(Object o)
+	bool Human::pick_up(Object * o)
 	{
-		if (environment.drop(o)){ //environment dropped the object -> contained it...
+		if (environment->drop(o)){ //environment dropped the object -> contained it...
 			objects.push_back(o);
 			return true;
 		}
@@ -18,12 +42,12 @@ namespace licf
 		return false;
 	}
 
-	void Human::drop(Object o)
+	bool Human::drop(Object * o)
 	{
 		//find the object and remove it
 		for (auto it = objects.begin(); it != objects.end(); ++it)
-			if (*it == o){
-				if (environment.pick_up(o)){
+			if ((*it) == o){ //TODO: does this comparison work?
+				if (environment->pick_up(o)){
 					objects.erase(it);
 					return true;
 				}
@@ -37,10 +61,10 @@ namespace licf
 	
 	void Human::talk()
 	{
-		std::cout << "Human sais: Hej, jag är en människa.\n";
+		std::cout << "Hej, jag är en människa.\n";
 	}
 	
-	void action()
+	void Human::action()
 	{
 		//TODO
 	}

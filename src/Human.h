@@ -5,12 +5,14 @@
 namespace licf
 {
 	class Human : public Actor {
-		double fist_power = 10;
+		double fist_power;
 	public:
-		void fight(Actor);
-		void pick_up(Object);
-		void drop(Object);
-		void talk(Actor);
+		Human() : fist_power(10) {};
+		
+		void fight(Actor &);
+		bool pick_up(Object *);
+		bool drop(Object *);
+		void talk();
 	
 		virtual void action();
 		virtual std::string name() = 0;

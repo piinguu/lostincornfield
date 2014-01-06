@@ -1,13 +1,11 @@
 #include "Actor.h"
 
-#include <iostream>
-
 namespace licf{
 	void Actor::go(Direction dir)
 	{
 		std::cout << "Actor: Going " << dir << std::endl;
 		//move to new environment in given direction, if possible
-		environment = environment.neighbor(dir);
+		environment = environment->neighbor(dir);
 	}
 	
 	void Actor::action()
@@ -20,7 +18,7 @@ namespace licf{
 		return "";
 	}
 	
-	void Actor::talk()
+	void Actor::talk_to(Actor &)
 	{
 		std::cout << "(silence)\n";
 	}
