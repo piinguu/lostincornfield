@@ -7,17 +7,14 @@ namespace licf {
 		Weapon(weight, volume, attack_rate) {}
 
 	double Knife::weight() {
-		// TODO
 		return w;
 	}
 
 	double Knife::volume() {
-		// TODO
 		return v;
 	}
 
 	double Knife::attack_rate() {
-		// TODO
 		return a;
 	}
 }
