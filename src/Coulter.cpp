@@ -1,21 +1,18 @@
 #include "Coulter.h"
 
 namespace licf {
-	Coulter::Coulter() : Weapon() {}
-
-	Coulter::Coulter(double weight, double volume, double attack_rate) : 
-		Weapon(weight, volume, attack_rate) {}
+	Coulter::Coulter() {}
 
 	double Coulter::weight() {
-		return w;
+		return 25;
 	}
 
 	double Coulter::volume() {
-		return v;
+		return 10;
 	}
 
 	double Coulter::attack_rate() {
-		return a;
+		return 42;
 	}
 }
 

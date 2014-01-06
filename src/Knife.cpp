@@ -1,21 +1,18 @@
 #include "Knife.h"
 
 namespace licf {
-	Knife::Knife() : Weapon() {}
-
-	Knife::Knife(double weight, double volume, double attack_rate) : 
-		Weapon(weight, volume, attack_rate) {}
+	Knife::Knife() {}
 
 	double Knife::weight() {
-		return w;
+		return 3;
 	}
 
 	double Knife::volume() {
-		return v;
+		return 2;
 	}
 
 	double Knife::attack_rate() {
-		return a;
+		return 28;
 	}
 }
 

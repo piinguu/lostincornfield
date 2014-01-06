@@ -1,21 +1,18 @@
 #include "Rope.h"
 
 namespace licf {
-	Rope::Rope() : Weapon() {}
-
-	Rope::Rope(double weight, double volume, double attack_rate) : 
-		Weapon(weight, volume, attack_rate) {}
+	Rope::Rope() {}
 
 	double Rope::weight() {
-		return w;
+		return 18;
 	}
 
 	double Rope::volume() {
-		return v;
+		return 12;
 	}
 
 	double Rope::attack_rate() {
-		return a;
+		return 8;
 	}
 }
 

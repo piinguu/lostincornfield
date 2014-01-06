@@ -5,16 +5,8 @@
 namespace licf {
     class Weapon : public Object {
     public:
-    	Weapon();
-    	Weapon(double weight, double volume, double attack_rate);
-
         virtual double attack_rate() = 0;
-
         virtual double weight() = 0;
-
         virtual double volume() = 0;
-
-    protected:
-    	double a;
     };
 }
