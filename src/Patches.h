@@ -3,9 +3,9 @@
 #include "Healing.h"
 
 namespace licf {
-    class Corn : public Healing {
+    class Patches : public Healing {
     public:
-    	Corn();
+    	Patches();
 
     	double weight();
     	double volume();
