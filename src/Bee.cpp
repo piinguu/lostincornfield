@@ -2,13 +2,14 @@
 
 namespace licf
 {
-	void Bee::fight(Actor a)
+	void Bee::fight(Actor * a)
 	{
 		//hit one time, then die
-		a.hp -= attack_rate;
+		a->hitted(attack_rate);
 		hp = 0;
+		environment->leave(*this);
 	}
 	
-	void action();
-	void talk();
+	void Bee::action(){}
+	void Bee::talk(){}
 }

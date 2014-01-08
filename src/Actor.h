@@ -5,7 +5,7 @@
 #include<iostream>
 
 #include "Direction.h"
-#include "Object.h"
+#include "objects/Object.h"
 #include "Environment.h"
 
 namespace licf{

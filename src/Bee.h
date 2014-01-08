@@ -6,11 +6,15 @@ namespace licf
 {
 	class Bee : public Animal {
 	public:
-		Bee() : attack_rate(5) {}
-		double max_hp() { return 2; }
-		std::string type() { return "bi"; }
+		Bee()
+		{
+			 attack_rate = 5;
+		}
+		
+		double max_hp() const { return 2; }
+		std::string type() const { return "bi"; }
 	
-		void fight(Actor);
+		void fight(Actor *);
 		void action();
 		void talk();
 	};

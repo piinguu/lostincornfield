@@ -5,7 +5,7 @@
 
 #include"Direction.h"
 //#include"Actor.h"
-#include"Object.h"
+#include"objects/Object.h"
  
 namespace licf
 {

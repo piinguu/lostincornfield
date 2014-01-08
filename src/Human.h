@@ -9,7 +9,7 @@ namespace licf
 	public:
 		Human() : fist_power(10) {};
 		
-		void fight(Actor &);
+		void fight(Actor *);
 		bool pick_up(Object *);
 		bool drop(Object *);
 		void talk() const;

@@ -1,13 +1,14 @@
 #include "Human.h"
 
-#include "Weapon.h"
+#include "objects/Weapon.h"
 #include<cassert>
 #include<typeinfo>
 
 namespace licf
 {
-	void Human::fight(Actor & a)
+	void Human::fight(Actor * a)
 	{
+		/*
 		double attack = fist_power;
 		//find best weapon
 		for (auto it = objects.begin(); it != objects.end(); ++it)
@@ -21,13 +22,10 @@ namespace licf
 			}
 			catch (const std::bad_cast &) {}
 		}
-		
+		*/
 		while (hp > 0){
-			a.hp -= attack;
-			std::cout << "Motståndaren har nu " << a.hp << " hp\n";
-			if (a.hp <= 0){
+			if (!a->hitted(attack_rate)){
 				std::cout << "Motståndaren dog.\n";
-				a.environment->leave(a);
 				return;
 			}
 			//motståndaren slår
@@ -57,12 +55,20 @@ namespace licf
 				if (environment->pick_up(o)){
 					objects.erase(it);
 					
+					double max_power = fist_power;
+
 					for (auto it = objects.begin(); it != objects.end(); ++it){
 						Object * o = *it;
 						Weapon * w = static_cast<Weapon*>(o);
-
+						//TODO: test if the static_cast behaves as we want it to behave
+						if (w->attack_rate() > max_power)
+							max_power = w->attack_rate();
 					}
 					
+					if (attack_rate != max_power){
+						attack_rate = max_power;
+						std::cout << "Bästa vapnet har nu styrkan " << attack_rate << std::endl;
+					}
 					return true;
 				}
 				std::cout << "Miljön vill inte ta emot objektet\n";
