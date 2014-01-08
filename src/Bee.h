@@ -2,10 +2,16 @@
 
 #include "Animal.h"
 
-class Bee : public Animal {
-	double max_hp() { return 2; }
-	std::string type() { return "bi"; }
+namespace licf
+{
+	class Bee : public Animal {
+	public:
+		Bee() : attack_rate(5) {}
+		double max_hp() { return 2; }
+		std::string type() { return "bi"; }
 	
-	void fight(Actor);
-	void action();
+		void fight(Actor);
+		void action();
+		void talk();
+	};
 }

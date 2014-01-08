@@ -73,7 +73,7 @@ namespace licf
 		return false;
 	}
 	
-	void Human::talk()
+	void Human::talk() const
 	{
 		std::cout << "Hej, jag är en människa.\n";
 	}

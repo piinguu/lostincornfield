@@ -13,14 +13,24 @@ namespace licf{
 		std::cout << "Det händer... ingenting.\n";
 	}
 	
-	std::string Actor::name()
+	std::string Actor::name() const
 	{
 		return "";
 	}
 	
-	void Actor::talk_to(Actor &)
+	void Actor::talk_to(Actor *) const
 	{
 		std::cout << "(silence)\n";
+	}
+	
+	bool Actor::hitted(double val)
+	{
+		hp -= val;
+		if (hp > 0)
+			return true;
+		//else, actor is dead
+		environment->leave(*this);
+		return false;
 	}
 
 }

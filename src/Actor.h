@@ -17,16 +17,17 @@ namespace licf{
 		std::list<Object *> objects;
 		
 		void go(Direction dir);
+		bool hitted(const double val);
 	
 		virtual void action();
-		virtual std::string name();
-		virtual void talk_to(Actor &);
+		virtual std::string name() const;
+		virtual void talk_to(Actor *) const;
 	
-		virtual double max_hp() = 0;
-		virtual std::string type() = 0;
-		virtual void fight(Actor &) = 0;
-		virtual bool pick_up(Object &) = 0;
-		virtual bool drop(Object &) = 0;
-		virtual void talk() = 0;
+		virtual double max_hp() const = 0;
+		virtual std::string type() const = 0;
+		virtual void fight(Actor *) = 0;
+		virtual bool pick_up(Object *) = 0;
+		virtual bool drop(Object *) = 0;
+		virtual void talk() const = 0;
 	};
 }

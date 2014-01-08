@@ -2,15 +2,18 @@
 
 #include "Human.h"
 
-class Farmer : public Human {
-	std::string _name;
+namespace licf
+{
+	class Farmer : public Human {
+		std::string _name;
 	
-public:
-	Human(std::string name) : _name(name) {};
+	public:
+		Farmer(const std::string & name) : _name(name) {};
 
-	double max_hp() { return 100; }
-	std::string type() { return "farmer"; }
-	std::string name() { return _name; };
+		double max_hp() const { return 100; }
+		std::string type() const { return "farmer"; }
+		std::string name() const { return _name; };
 	
-	void action();
-};
+		void action();
+	};
+}
