@@ -4,6 +4,7 @@
 
 namespace licf{
 	class Player : public Human{
+	public:
 		Player() : Human(100) {}
 		double max_hp() const { return 100; }
 		double hold_weight() const { return 20; }

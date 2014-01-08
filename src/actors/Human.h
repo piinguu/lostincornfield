@@ -6,6 +6,7 @@ namespace licf
 {
 	class Human : public Actor {
 		double fist_power;
+		
 	public:
 		Human(double max_hp) : Actor(max_hp), fist_power(10) {};
 		
@@ -15,7 +16,6 @@ namespace licf
 		void talk() const;
 	
 		virtual void action();
-		virtual std::string name() const = 0;
 	
 		//inherited from Actor
 		virtual double max_hp() const = 0;

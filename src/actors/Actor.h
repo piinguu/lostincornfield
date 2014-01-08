@@ -6,16 +6,16 @@
 
 #include "../Direction.h"
 #include "../objects/Object.h"
-#include "../Environment.h"
+#include "../env/Environment.h"
 
 namespace licf{
 
 	class Actor{
 	protected:
 		std::list<Object *> objects;
-		Environment * environment;
 
 	public:
+		Environment * environment;
 		double hp, attack_rate;
 		
 		Actor(double max_hp) : hp(max_hp) {}

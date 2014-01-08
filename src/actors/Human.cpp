@@ -8,21 +8,6 @@ namespace licf
 {
 	void Human::fight(Actor * a)
 	{
-		/*
-		double attack = fist_power;
-		//find best weapon
-		for (auto it = objects.begin(); it != objects.end(); ++it)
-		{
-			try
-			{
-				Object * o = *it;
-				Weapon * w = static_cast<Weapon*>(o);
-				if (w->attack_rate() > attack)
-					attack = w->attack_rate();
-			}
-			catch (const std::bad_cast &) {}
-		}
-		*/
 		while (hp > 0){
 			if (!a->hitted(attack_rate)){
 				std::cout << "Motståndaren dog.\n";

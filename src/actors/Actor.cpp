@@ -5,7 +5,13 @@ namespace licf{
 	{
 		std::cout << "Actor: Going " << dir << std::endl;
 		//move to new environment in given direction, if possible
-		environment = environment->neighbor(dir);
+		Environment * env = environment->neighbor(dir);
+		if (env == nullptr)
+			return;
+		
+		environment->leave(this);
+		environment = env;
+		environment->enter(this);
 	}
 	
 	void Actor::action()
@@ -29,7 +35,7 @@ namespace licf{
 		if (hp > 0)
 			return true;
 		//else, actor is dead
-		environment->leave(*this);
+		environment->leave(this);
 		return false;
 	}
 
