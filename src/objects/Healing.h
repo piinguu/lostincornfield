@@ -8,5 +8,7 @@ namespace licf {
         virtual double volume() = 0;
 
         virtual double healing_rate() = 0;
+
+        virtual std::string type() = 0;
 	};
 }

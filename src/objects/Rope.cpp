@@ -14,5 +14,9 @@ namespace licf {
 	double Rope::attack_rate() {
 		return 8;
 	}
+
+	std::string Rope::type() {
+		return "rope";
+	}
 }
 

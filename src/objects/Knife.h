@@ -3,12 +3,13 @@
 #include "Weapon.h"
 
 namespace licf {
-    class Coulter : public Weapon {
+    class Knife : public Weapon {
     public:
-    	Coulter();
+    	Knife();
 
+    	double attack_rate();
     	double weight();
     	double volume();
-    	double attack_rate();
+    	std::string type();
     };
 }

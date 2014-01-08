@@ -14,5 +14,9 @@ namespace licf {
 	double Coulter::attack_rate() {
 		return 42;
 	}
+
+	std::string Coulter::type() {
+		return "coulter";
+	}
 }
 

@@ -3,12 +3,13 @@
 #include "Healing.h"
 
 namespace licf {
-    class Honey : public Healing {
+    class Painkiller : public Healing {
     public:
-    	Honey();
+    	Painkiller();
 
     	double weight();
     	double volume();
     	double healing_rate();
+    	std::string type();
     };
 }

@@ -14,5 +14,9 @@ namespace licf {
 	double Corn::healing_rate() {
 		return 28;
 	}
+
+	std::string Corn::type() {
+		return "corn";
+	}
 }
 
