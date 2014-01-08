@@ -7,9 +7,9 @@ namespace licf {
     public:
     	Patches();
 
-    	double weight();
-    	double volume();
-    	double healing_rate();
-    	std::string type();
+    	double weight() const;
+    	double volume() const;
+    	double healing_rate() const;
+    	std::string type() const;
     };
 }

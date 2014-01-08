@@ -3,19 +3,19 @@
 namespace licf {
 	Honey::Honey() {}
 
-	double Honey::weight() {
+	double Honey::weight() const {
 		return 3;
 	}
 
-	double Honey::volume() {
+	double Honey::volume() const {
 		return 2;
 	}
 
-	double Honey::healing_rate() {
+	double Honey::healing_rate() const {
 		return 28;
 	}
 
-	std::string Honey::type() {
+	std::string Honey::type() const {
 		return "honey";
 	}
 }

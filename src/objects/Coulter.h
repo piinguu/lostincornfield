@@ -7,9 +7,9 @@ namespace licf {
     public:
     	Coulter();
 
-    	double attack_rate();
-    	double weight();
-    	double volume();
-    	std::string type();
+    	double attack_rate() const;
+    	double weight() const;
+    	double volume() const;
+    	std::string type() const;
     };
 }

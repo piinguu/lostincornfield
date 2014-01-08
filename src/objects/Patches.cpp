@@ -3,19 +3,19 @@
 namespace licf {
 	Patches::Patches() {}
 
-	double Patches::weight() {
+	double Patches::weight() const {
 		return 3;
 	}
 
-	double Patches::volume() {
+	double Patches::volume() const {
 		return 2;
 	}
 
-	double Patches::healing_rate() {
+	double Patches::healing_rate() const {
 		return 28;
 	}
 
-	std::string Patches::type() {
+	std::string Patches::type() const {
 		return "patches";
 	}
 }

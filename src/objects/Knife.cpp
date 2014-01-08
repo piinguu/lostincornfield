@@ -3,19 +3,19 @@
 namespace licf {
 	Knife::Knife() {}
 
-	double Knife::weight() {
+	double Knife::weight() const {
 		return 3;
 	}
 
-	double Knife::volume() {
+	double Knife::volume() const {
 		return 2;
 	}
 
-	double Knife::attack_rate() {
+	double Knife::attack_rate() const {
 		return 28;
 	}
 
-	std::string Knife::type() {
+	std::string Knife::type() const {
 		return "knife";
 	}
 }

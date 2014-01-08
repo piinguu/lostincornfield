@@ -3,19 +3,19 @@
 namespace licf {
 	Painkiller::Painkiller() {}
 
-	double Painkiller::weight() {
+	double Painkiller::weight() const {
 		return 3;
 	}
 
-	double Painkiller::volume() {
+	double Painkiller::volume() const {
 		return 2;
 	}
 
-	double Painkiller::healing_rate() {
+	double Painkiller::healing_rate() const {
 		return 28;
 	}
 
-	std::string Painkiller::type() {
+	std::string Painkiller::type() const {
 		return "painkiller";
 	}
 }

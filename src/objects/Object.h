@@ -6,9 +6,9 @@ namespace licf {
     class Object {
     public:
 
-        virtual double weight() = 0;
-		virtual double volume() = 0;
+        virtual double weight() const = 0;
+		virtual double volume() const = 0;
 
-		virtual std::string type() = 0;
+		virtual std::string type() const = 0;
     };
 }
