@@ -28,7 +28,10 @@ namespace licf
 			if (a.hp <= 0){
 				std::cout << "Motståndaren dog.\n";
 				a.environment->leave(a);
+				return;
 			}
+			//motståndaren slår
+			hp -= a.
 		}
 	}
 	
@@ -36,6 +39,11 @@ namespace licf
 	{
 		if (environment->drop(o)){ //environment dropped the object -> contained it...
 			objects.push_back(o);
+
+			Weapon * w = static_cast<Weapon*>(o);
+			if (w->attack_rate() > attack_rate)
+				attack_rate = w->attack_rate();
+
 			return true;
 		}
 		std::cout << "Kan inte plocka upp objektet...\n";
@@ -49,6 +57,13 @@ namespace licf
 			if ((*it) == o){ //TODO: does this comparison work?
 				if (environment->pick_up(o)){
 					objects.erase(it);
+					
+					for (auto it = objects.begin(); it != objects.end(); ++it){
+						Object * o = *it;
+						Weapon * w = static_cast<Weapon*>(o);
+
+					}
+					
 					return true;
 				}
 				std::cout << "Miljön vill inte ta emot objektet\n";

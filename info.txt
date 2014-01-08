@@ -10,11 +10,11 @@ a)	Klasshierarki för aktörerna
 
 Actor
 	- hp, go(direction),
-	- virtual: action(), name(), talk()
-	- pure virtual: max_hp, type(), fight(Actor), pick_up(Object), drop(Object), talk_to(Actor)
+	- virtual: action(), name(), talk_to(Actor)
+	- pure virtual: max_hp(), type(), fight(Actor), pick_up(Object), drop(Object), talk()
 	
 	Människor
-		- fight(Actor), pick_up(Object), drop(Object), talk_to(Actor)
+		- fight(Actor), pick_up(Object), drop(Object), talk()
 		- virtual: action()
 		- pure virtual: name()
 		Bönder
