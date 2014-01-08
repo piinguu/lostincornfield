@@ -31,7 +31,6 @@ namespace licf
 				return;
 			}
 			//motståndaren slår
-			hp -= a.
 		}
 	}
 	
