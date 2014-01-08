@@ -4,17 +4,21 @@
 #include<list>
 #include<iostream>
 
-#include "Direction.h"
-#include "objects/Object.h"
-#include "Environment.h"
+#include "../Direction.h"
+#include "../objects/Object.h"
+#include "../Environment.h"
 
 namespace licf{
 
 	class Actor{
+	protected:
+		std::list<Object *> objects;
+		Environment * environment;
+
 	public:
 		double hp, attack_rate;
-		Environment * environment;
-		std::list<Object *> objects;
+		
+		Actor(double max_hp) : hp(max_hp) {}
 		
 		void go(Direction dir);
 		bool hitted(const double val);

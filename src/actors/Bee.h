@@ -6,7 +6,7 @@ namespace licf
 {
 	class Bee : public Animal {
 	public:
-		Bee()
+		Bee() : Animal(2)
 		{
 			 attack_rate = 5;
 		}

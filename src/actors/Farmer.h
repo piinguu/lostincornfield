@@ -8,7 +8,7 @@ namespace licf
 		std::string _name;
 	
 	public:
-		Farmer(const std::string & name) : _name(name) {};
+		Farmer(const std::string & name) : Human(100), _name(name) {};
 
 		double max_hp() const { return 100; }
 		std::string type() const { return "farmer"; }

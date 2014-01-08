@@ -6,8 +6,7 @@ namespace licf
 	{
 		//hit one time, then die
 		a->hitted(attack_rate);
-		hp = 0;
-		environment->leave(*this);
+		hitted(max_hp());
 	}
 	
 	void Bee::action(){}

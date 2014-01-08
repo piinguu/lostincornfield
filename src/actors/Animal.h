@@ -5,6 +5,9 @@
 namespace licf
 {
 	class Animal : public Actor {
+	public:
+		Animal(double max_hp) : Actor(max_hp){}
+
 		bool pick_up(Object *);
 		bool drop(Object *);
 	

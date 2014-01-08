@@ -1,6 +1,6 @@
 #include "Human.h"
 
-#include "objects/Weapon.h"
+#include "../objects/Weapon.h"
 #include<cassert>
 #include<typeinfo>
 

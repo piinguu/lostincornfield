@@ -7,7 +7,7 @@ namespace licf
 	class Human : public Actor {
 		double fist_power;
 	public:
-		Human() : fist_power(10) {};
+		Human(double max_hp) : Actor(max_hp), fist_power(10) {};
 		
 		void fight(Actor *);
 		bool pick_up(Object *);
