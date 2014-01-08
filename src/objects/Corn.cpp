@@ -3,19 +3,19 @@
 namespace licf {
 	Corn::Corn() {}
 
-	double Corn::weight() {
+	double Corn::weight() const {
 		return 3;
 	}
 
-	double Corn::volume() {
+	double Corn::volume() const {
 		return 2;
 	}
 
-	double Corn::healing_rate() {
+	double Corn::healing_rate() const {
 		return 28;
 	}
 
-	std::string Corn::type() {
+	std::string Corn::type() const {
 		return "corn";
 	}
 }

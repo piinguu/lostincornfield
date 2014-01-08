@@ -7,9 +7,9 @@ namespace licf {
     public:
     	Rope();
 
-    	double weight();
-    	double volume();
-    	double attack_rate();
-    	std::string type();
+    	double weight() const;
+    	double volume() const;
+    	double attack_rate() const;
+    	std::string type() const;
     };
 }
