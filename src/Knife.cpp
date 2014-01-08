@@ -14,5 +14,9 @@ namespace licf {
 	double Knife::attack_rate() {
 		return 28;
 	}
+
+	std::string Knife::type() {
+		return "knife";
+	}
 }
 

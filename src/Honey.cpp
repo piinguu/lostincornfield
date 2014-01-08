@@ -14,5 +14,9 @@ namespace licf {
 	double Honey::healing_rate() {
 		return 28;
 	}
+
+	std::string Honey::type() {
+		return "honey";
+	}
 }
 

@@ -7,8 +7,9 @@ namespace licf {
     public:
     	Knife();
 
+    	double attack_rate();
     	double weight();
     	double volume();
-    	double attack_rate();
+    	std::string type();
     };
 }

@@ -10,5 +10,6 @@ namespace licf {
     	double weight();
     	double volume();
     	double attack_rate();
+    	std::string type();
     };
 }

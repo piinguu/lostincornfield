@@ -14,5 +14,9 @@ namespace licf {
 	double Patches::healing_rate() {
 		return 28;
 	}
+
+	std::string Patches::type() {
+		return "patches";
+	}
 }
 

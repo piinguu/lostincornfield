@@ -7,8 +7,9 @@ namespace licf {
     public:
     	Corn();
 
+    	double healing_rate();
     	double weight();
     	double volume();
-    	double healing_rate();
+    	std::string type();
     };
 }
