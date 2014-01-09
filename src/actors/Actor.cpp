@@ -16,10 +16,14 @@ namespace licf{
 		environment->enter(this);
 	}
 	
-	void Actor::action()
+	void Actor::go_random()
 	{
-		std::cout << "Det händer... ingenting.\n";
+		std::vector<Direction> directions = environment->directions();
+		go(directions[next_rand(directions.size())]);
 	}
+	
+	/* Default action : nothing happens. Should be overridden by any class that can perform an action */
+	void Actor::action() {}
 	
 	std::string Actor::name() const
 	{
@@ -33,6 +37,7 @@ namespace licf{
 	
 	bool Actor::hitted(double val)
 	{
+		std::cout << "En " << type() << " säger ajajaj...\n";
 		hp -= val;
 		if (hp > 0)
 			return true;
@@ -40,5 +45,15 @@ namespace licf{
 		environment->leave(this);
 		return false;
 	}
-
+	
+	int Actor::next_rand(int limit)
+	{
+		return rand() % limit;
+	}
+	
+	Actor * Actor::random_actor()
+	{
+		std::vector<Actor *> actors = environment->actors;
+		return actors[next_rand(actors.size())];
+	}
 }

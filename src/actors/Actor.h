@@ -3,6 +3,8 @@
 #include<string.h>
 #include<list>
 #include<iostream>
+#include<stdlib.h>
+#include<time.h>
 
 #include "../Direction.h"
 #include "../objects/Object.h"
@@ -13,18 +15,25 @@ namespace licf{
 	class Actor{
 	protected:
 		std::list<Object *> objects;
+		
+		int next_rand(int limit);
 
 	public:
 		Environment * environment;
 		double hp, attack_rate;
 		
-		Actor(double max_hp) : hp(max_hp) {}
-		
-		~Actor() {}
+		Actor(double max_hp) : hp(max_hp)
+		{
+			//initialize randomizer
+			srand(time(NULL));
+		}
 		
 		void go(Direction dir);
+		void go_random();
 		bool hitted(const double val);
 	
+		Actor * random_actor();
+		
 		virtual void action();
 		virtual std::string name() const;
 		virtual void talk_to(Actor *) const;

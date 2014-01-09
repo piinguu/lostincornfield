@@ -70,10 +70,4 @@ namespace licf
 	{
 		std::cout << "Hej, jag är en människa.\n";
 	}
-	
-	void Human::action()
-	{
-		//TODO
-	}
-
 }
