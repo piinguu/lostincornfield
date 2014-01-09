@@ -2,14 +2,21 @@
 
 namespace licf
 {
+ 	std::string Dog::type() const
+ 	{
+ 		if (aggression_level > 5)
+ 			return "aggresiv hund";
+ 		return "hund";
+ 	}
+ 	
 	void Dog::fight(Actor * a)
 	{
 		while (hp > 0 && a->hp > 0)
 		{
 			//fight until someone dies...
-			a->hitted(attack_rate);
+			a->hitted(this);
 			if (a->hp > 0)
-				hitted(a->attack_rate);
+				hitted(a);
 		}
 	}
 	

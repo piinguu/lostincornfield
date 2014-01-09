@@ -5,7 +5,7 @@ namespace licf
 	void Bird::fight(Actor * a)
 	{
 		//hit and run...
-		a->hitted(attack_rate);
+		a->hitted(this);
 	}
 	
 	void Bird::action()

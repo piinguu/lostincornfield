@@ -5,11 +5,11 @@ namespace licf
 	void Snake::fight(Actor * a)
 	{
 		//std::cout << "Ormen gör plötsligt ett utfall.";
-		a->hitted(attack_rate);
+		a->hitted(this);
 		if (a->hp > 0)
 		{
 			//std::cout << " Du slår tillbaka.";
-			hitted(a->attack_rate);
+			hitted(a);
 		}
 	}
 	

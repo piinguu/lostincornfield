@@ -30,10 +30,10 @@ namespace licf{
 		
 		void go(Direction dir);
 		void go_random();
-		bool hitted(Actor *);
-	
+		
 		Actor * random_actor();
 		
+		virtual bool hitted(Actor *);
 		virtual void action();
 		virtual std::string name() const;
 		virtual void talk_to(Actor *) const;

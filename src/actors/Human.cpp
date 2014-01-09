@@ -11,7 +11,7 @@ namespace licf
 	void Human::fight(Actor * a)
 	{
 		while (hp > 0){
-			if (!a->hitted(attack_rate)){
+			if (!a->hitted(this)){
 				std::cout << "Motståndaren dog.\n";
 				return;
 			}

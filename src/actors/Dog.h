@@ -13,8 +13,9 @@ namespace licf
 			attack_rate = 30;
 		}
 		
-		double max_hp() { return 20; }
-		std::string type() { return "hund"; }
+		double max_hp() const { return 20; }
+
+		std::string type() const;
 		
 		void fight(Actor *);
 		void action();

@@ -9,8 +9,8 @@ namespace licf
 	void Bee::fight(Actor * a)
 	{
 		//hit one time, then die
-		a->hitted(attack_rate);
-		hitted(max_hp());
+		a->hitted(this);
+		hitted(this);
 	}
 	
 	void Bee::action()
