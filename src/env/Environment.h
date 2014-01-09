@@ -4,8 +4,8 @@
 #include<vector>
 #include<string>
 
-#include"../Direction.h"
-#include"../objects/Object.h"
+#include "../Direction.h"
+#include "../objects/Object.h"
  
 namespace licf
 {

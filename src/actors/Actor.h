@@ -6,10 +6,10 @@
 
 #include "../Direction.h"
 #include "../objects/Object.h"
-#include "../env/Environment.h"
 
 namespace licf{
-
+	class Environment;
+	
 	class Actor{
 	protected:
 		std::list<Object *> objects;

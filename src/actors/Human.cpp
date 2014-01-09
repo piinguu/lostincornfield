@@ -4,6 +4,8 @@
 #include<cassert>
 #include<typeinfo>
 
+#include "../env/Environment.h"
+
 namespace licf
 {
 	void Human::fight(Actor * a)

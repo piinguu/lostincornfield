@@ -2,6 +2,22 @@
 CC=g++
 #flags
 CFLAGS=-std=c++0x -o bin/licf.out
+BUILD=g++ -std=c++0x -c
 
-all:
-	$(CC) src/*.cpp src/actors/*.cpp src/env/*.cpp src/objects/*.cpp $(CFLAGS)
+all: game
+
+game: base env actors objects
+	mv *.o obj
+	g++ obj/*.o -o bin/licf.out
+
+base: src/*.cpp
+	$(BUILD) src/*.cpp
+
+env: src/env/*.cpp
+	$(BUILD) src/env/*.cpp
+
+actors: src/actors/*.cpp
+	$(BUILD) src/actors/*.cpp
+
+objects: src/objects/*.cpp
+	$(BUILD) src/objects/*.cpp

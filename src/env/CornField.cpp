@@ -2,6 +2,8 @@
 
 #include <sstream>
 
+#include "../actors/Actor.h"
+
 namespace licf
 {
 	std::string CornField::description() const
@@ -14,6 +16,7 @@ namespace licf
 			for (int i = 0; i < objects.size() - 1; ++i)
 				ss << objects[i]->type() << ", ";
 			ss << objects[objects.size() - 1] << '\n';
+			ss << '\n'; //TODO: ta bort
 		}
 		
 		if (actors.size() > 0)

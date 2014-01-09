@@ -1,5 +1,7 @@
 #include "Actor.h"
 
+#include "../env/Environment.h"
+
 namespace licf{
 	void Actor::go(Direction dir)
 	{
