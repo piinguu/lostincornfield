@@ -4,6 +4,7 @@
 
 #include "actors/Farmer.h"
 #include "actors/Player.h"
+#include "actors/Bee.h"
 
 #include "objects/Honey.h"
 

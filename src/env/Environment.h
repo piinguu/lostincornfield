@@ -14,10 +14,10 @@ namespace licf
 	class Environment
 	{
 	protected:
-		std::vector<Object*> objects;
-		std::vector<Actor*> actors;
 		std::map<Direction, Environment*> neighbors;
 	public:
+		std::vector<Object*> objects;
+		std::vector<Actor*> actors;
 		bool add_neighbor(Environment*, Direction);
 		std::vector<Direction> directions() const;
 		Environment * neighbor(Direction) const;

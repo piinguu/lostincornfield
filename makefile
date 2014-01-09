@@ -2,7 +2,7 @@
 CC=g++
 #flags
 CFLAGS=-std=c++0x -o bin/licf.out
-BUILD=g++ -std=c++0x -c
+BUILD=g++ -std=c++0x -c -g
 
 all: game
 

@@ -15,16 +15,15 @@ namespace licf
 			ss << "Det ligger lite prylar på marken: ";
 			for (int i = 0; i < objects.size() - 1; ++i)
 				ss << objects[i]->type() << ", ";
-			ss << objects[objects.size() - 1] << '\n';
-			ss << '\n'; //TODO: ta bort
+			ss << objects[objects.size() - 1]->type() << '\n';
 		}
 		
 		if (actors.size() > 0)
 		{
-			ss << "Du ser minst en levande varelse: ";
+			ss << "Du ser minst en annan levande varelse: ";
 			for (int i = 0; i < actors.size() - 1; ++i)
 				ss << actors[i]->type() << ", ";
-			ss << actors[actors.size() - 1] << '\n';
+			ss << actors[actors.size() - 1]->type() << '\n';
 		}
 		return ss.str();
 	}

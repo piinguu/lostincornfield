@@ -13,5 +13,12 @@ namespace licf
 		std::vector<Actor *> actors;
 		std::vector<Object *> objects;
 		Actor * player;
+		
+		void cleanup()
+		{
+			while (!map.empty()) delete map.back(), map.pop_back();
+			while (!actors.empty()) delete actors.back(), actors.pop_back();
+			while (!objects.empty()) delete objects.back(), objects.pop_back();
+		}
 	};
 }
