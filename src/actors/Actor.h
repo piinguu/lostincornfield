@@ -30,7 +30,7 @@ namespace licf{
 		
 		void go(Direction dir);
 		void go_random();
-		bool hitted(const double val);
+		bool hitted(Actor *);
 	
 		Actor * random_actor();
 		

@@ -35,10 +35,9 @@ namespace licf{
 		std::cout << "(silence)\n";
 	}
 	
-	bool Actor::hitted(double val)
+	bool Actor::hitted(Actor * a)
 	{
-		std::cout << "En " << type() << " säger ajajaj...\n";
-		hp -= val;
+		hp -= a->attack_rate;
 		if (hp > 0)
 			return true;
 		//else, actor is dead
