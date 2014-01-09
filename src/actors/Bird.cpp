@@ -5,7 +5,7 @@ namespace licf
 	void Bird::fight(Actor * a)
 	{
 		//hit and run...
-		a.hitted(attack_rate);
+		a->hitted(attack_rate);
 	}
 	
 	void Bird::action()
@@ -19,7 +19,7 @@ namespace licf
 			go_random();
 	}
 	
-	void talk() const
+	void Bird::talk() const
 	{
 		std::cout << "Kviddevitt\n";
 	}

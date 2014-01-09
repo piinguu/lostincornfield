@@ -7,13 +7,13 @@ namespace licf
 		while (hp > 0 && a->hp > 0)
 		{
 			//fight until someone dies...
-			a.hitted(attack_rate);
-			if (a.hp > 0)
+			a->hitted(attack_rate);
+			if (a->hp > 0)
 				hitted(a->attack_rate);
 		}
 	}
 	
-	void action()
+	void Dog::action()
 	{
 		aggression_level += next_rand(5) - 2;
 		if (aggression_level < 0)
@@ -22,9 +22,9 @@ namespace licf
 			aggression_level = 10;
 	}
 
-	void talk() const
+	void Dog::talk() const
 	{
-		else if (aggression_level > 5)
+		if (aggression_level > 5)
 			std::cout << "Grrrrrr...\n";
 		else
 			std::cout << "Voff!\n";

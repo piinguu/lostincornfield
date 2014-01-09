@@ -11,5 +11,7 @@ namespace licf{
 		double hold_volume() const { return 60; }
 	
 		std::string type() const { return "player"; }
+		
+		void action() {}
 	};
 }
