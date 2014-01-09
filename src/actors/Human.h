@@ -15,9 +15,8 @@ namespace licf
 		bool drop(Object *);
 		void talk() const;
 	
-		virtual void action();
-	
 		//inherited from Actor
+		virtual void action() = 0;
 		virtual double max_hp() const = 0;
 		virtual std::string type() const = 0;
 	};

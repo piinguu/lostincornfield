@@ -2,4 +2,8 @@
 
 namespace licf
 {
+	void Player::action()
+	{
+	
+	}
 }
