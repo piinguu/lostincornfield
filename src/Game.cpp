@@ -11,9 +11,11 @@ void generate_map(GameStuff & gs)
 	Environment * start = new CornField();
 	Environment * cf1 = new CornField();
 	Environment * end = new CornField();
+	Environment * goal = new Goal();
 	gs.map.push_back(start);
 	gs.map.push_back(cf1);
 	gs.map.push_back(end);
+	gs.map.push_back(goal);
 	
 	Object * h = new Honey();
 	gs.objects.push_back(h);
@@ -31,6 +33,8 @@ void generate_map(GameStuff & gs)
 	
 	end->add_neighbor(cf1, South);
 	cf1->add_neighbor(end, North);
+
+	end->add_neighbor(goal, East);
 	
 	start->pick_up(h);
 	

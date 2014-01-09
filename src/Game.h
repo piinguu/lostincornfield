@@ -9,6 +9,7 @@
 #include "objects/Honey.h"
 
 #include "env/CornField.h"
+#include "env/Goal.h"
 
 #include "Direction.h"
 

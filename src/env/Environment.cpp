@@ -8,7 +8,8 @@ namespace licf
 
 	bool Environment::add_neighbor(Environment* e, Direction d)
 	{
-		std::pair<std::map<Direction, Environment*>::iterator, bool> p = neighbors.insert( DirEnv(d, e));
+		std::pair<std::map<Direction, Environment*>::iterator, bool> p = 
+				neighbors.insert( DirEnv(d, e));
 		return p.second;
 	}
 

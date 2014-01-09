@@ -1,6 +1,6 @@
 #include "Parser.h"
 
-
+#include "env/Goal.h"
 
 #include<iostream>
 #include<string>
@@ -37,7 +37,7 @@ namespace licf
 		else
 			std::cout << "ERROR!!!\n";
 
-		return true;
+		return !finished();
 	}
 	
 	bool Parser::go(Direction dir){
@@ -46,5 +46,11 @@ namespace licf
 		if (oldenv != gs.player->environment)
 			std::cout << gs.player->environment->description();
 		return oldenv != gs.player->environment;
+	}
+
+	bool Parser::finished() {
+		if (dynamic_cast<Goal *>(gs.player->environment))
+			return true;
+		return false;
 	}
 }
