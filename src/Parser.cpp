@@ -1,6 +1,6 @@
 #include "Parser.h"
 
-
+#include "env/Goal.h"
 
 #include<iostream>
 #include<string>
@@ -37,7 +37,7 @@ namespace licf
 		else
 			std::cout << "ERROR!!!\n";
 
-		return true;
+		return !finished();
 	}
 	
 	bool Parser::go(Direction dir){

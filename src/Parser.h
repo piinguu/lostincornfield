@@ -12,6 +12,7 @@ namespace licf
 		Parser(GameStuff & g) : gs(g), n(0) {}
 		
 		bool run();
+		bool finished();
 	};
 }
 
