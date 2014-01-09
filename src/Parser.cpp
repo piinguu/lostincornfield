@@ -34,10 +34,10 @@ namespace licf
 			go(West);
 		else if (s == "east")
 			go(East);
-		else{
+		else
 			std::cout << "ERROR!!!\n";
-			return true;
-		}
+
+		return true;
 	}
 	
 	bool Parser::go(Direction dir){
