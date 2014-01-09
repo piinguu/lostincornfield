@@ -20,6 +20,8 @@ namespace licf{
 		
 		Actor(double max_hp) : hp(max_hp) {}
 		
+		~Actor() {}
+		
 		void go(Direction dir);
 		bool hitted(const double val);
 	

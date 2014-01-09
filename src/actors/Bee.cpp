@@ -10,5 +10,5 @@ namespace licf
 	}
 	
 	void Bee::action(){}
-	void Bee::talk(){}
+	void Bee::talk() const{}
 }

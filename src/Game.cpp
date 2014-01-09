@@ -18,10 +18,12 @@ void generate_map(GameStuff & gs)
 	Object * h = new Honey();
 	gs.objects.push_back(h);
 	
-	Actor * farmer = new Farmer("Pelle");
+	Actor * farmer = new Farmer("Pelle"); //TODO: this causes memory leak. WHYYY??
+	Actor * bee = new Bee();
 	gs.player = new Player();
 	gs.actors.push_back(farmer);
 	gs.actors.push_back(gs.player);
+	gs.actors.push_back(bee);
 	
 	//"doors"
 	start->add_neighbor(cf1, East);
@@ -37,6 +39,9 @@ void generate_map(GameStuff & gs)
 	
 	cf1->enter(farmer);
 	farmer->environment = cf1;
+	
+	cf1->enter(bee);
+	bee->environment = cf1;
 }
 
 int main()
@@ -46,7 +51,12 @@ int main()
 	
 	Parser p(gs);
 	
-	while (p.run());
+	while (p.run()){
+		for (auto it = gs.actors.begin(); it != gs.actors.end(); ++it)
+			(*it)->action();
+	}
+	
+	gs.cleanup();
 	
 	return 0;
 }

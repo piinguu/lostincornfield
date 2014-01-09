@@ -16,6 +16,6 @@ namespace licf
 	
 		void fight(Actor *);
 		void action();
-		void talk();
+		void talk() const;
 	};
 }

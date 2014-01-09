@@ -41,7 +41,10 @@ namespace licf
 	}
 	
 	bool Parser::go(Direction dir){
+		Environment * oldenv = gs.player->environment;
 		gs.player->go(dir);
-		std::cout << gs.player->environment->description();
+		if (oldenv != gs.player->environment)
+			std::cout << gs.player->environment->description();
+		return oldenv != gs.player->environment;
 	}
 }
