@@ -47,4 +47,10 @@ namespace licf
 			std::cout << gs.player->environment->description();
 		return oldenv != gs.player->environment;
 	}
+
+	bool Parser::finished() {
+		if (dynamic_cast<Goal *>(gs.player->environment))
+			return true;
+		return false;
+	}
 }
