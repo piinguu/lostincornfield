@@ -167,11 +167,21 @@ namespace licf
 			std::cout << gs.player->environment->description() << std::endl;
 		else
 		{
-			Object * o = gs.player->environment->get_object(s);
-			if (o == nullptr)
-				std::cout << "Finns inget sådant objekt på marken.\n";
-			else
-				std::cout << o->description() << std::endl;
+			Object * eo = gs.player->environment->get_object(s);
+			Object * po = gs.player->get_object(s);
+
+			if (eo == nullptr && po == nullptr)
+				std::cout << "Finns inget sådant objekt.\n";
+			else {
+				if (eo != nullptr) {
+					std::cout << "Objektet finns på marken.\n";
+					std::cout << eo->description() << std::endl;
+				}
+				if (po != nullptr) {
+					std::cout << "Objektet finns hos dig.\n";
+					std::cout << po->description() << std::endl;
+				}
+			}
 		}
 		return true;
 	}

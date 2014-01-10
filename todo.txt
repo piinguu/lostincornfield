@@ -12,4 +12,4 @@ Lägg till ryggsäck
 
 Fixa mål
 
-titta objekt - även spelarens inventory
+Ta bort döda aktörer och använda saker från gs.
