@@ -5,6 +5,8 @@
 namespace licf {
     class Weapon : public Object {
     public:
+    	std::string description() const;
+    	
         virtual double attack_rate() const = 0;
         virtual double weight() const = 0;
         virtual double volume() const = 0;
