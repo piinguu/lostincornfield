@@ -11,3 +11,5 @@ Player:
 Lägg till ryggsäck
 
 Fixa mål
+
+titta objekt - även spelarens inventory
