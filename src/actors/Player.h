@@ -13,6 +13,7 @@ namespace licf{
 		std::string type() const { return "player"; }
 		
 		void action();
+		bool drop(std::string &);
 		
 		//overriding Actor
 		bool hitted(Actor *);

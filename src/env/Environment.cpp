@@ -45,7 +45,7 @@ namespace licf
 		actors.erase(it);
 	}
 	
-	Actor * Environment::get_actor(std::string name) const
+	Actor * Environment::get_actor(const std::string & name) const
 	{
 		auto it = actors.find(name);
 		return it == actors.end() ? nullptr : it->second;
@@ -56,5 +56,13 @@ namespace licf
 		auto it = actors.begin();
 		std::advance(it, number % actors.size());
 		return it->second;
+	}
+	
+	Object * Environment::get_object(const std::string & name) const
+	{
+		for (int i = 0; i < objects.size(); ++i)
+			if (objects[i]->type() == name)
+				return objects[i];
+		return nullptr;
 	}
 }

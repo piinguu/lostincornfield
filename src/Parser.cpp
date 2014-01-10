@@ -1,6 +1,8 @@
 #include "Parser.h"
 
 #include "env/Goal.h"
+#include "actors/Actor.h"
+#include "actors/Player.h"
 
 #include<iostream>
 #include<string>
@@ -11,15 +13,24 @@ namespace licf
 	Parser::Parser(GameStuff & g) : gs(g), n(0) 
 	{
 		// Fill map containing all valid directions
-		dirs.insert( std::make_pair( "east", East ) );
-		dirs.insert( std::make_pair( "west", West ) );
-		dirs.insert( std::make_pair( "north", North ) );
-		dirs.insert( std::make_pair( "south", South ) );
+		dirs.insert( std::make_pair( "ost", East ) );
+		dirs.insert( std::make_pair( "väst", West ) );
+		dirs.insert( std::make_pair( "nord", North ) );
+		dirs.insert( std::make_pair( "syd", South ) );
+		dirs.insert( std::make_pair( "öster", East ) );
+		dirs.insert( std::make_pair( "väster", West ) );
+		dirs.insert( std::make_pair( "norr", North ) );
+		dirs.insert( std::make_pair( "söder", South ) );
 
 		// Fill the map containing commands give each a function pointer
-		commands.insert( std::make_pair( "go", &Parser::go ) );
-		commands.insert( std::make_pair( "gå", &Parser::go ) );
-		commands.insert( std::make_pair( "fight", &Parser::fight ) );
+		commands.insert( std::make_pair( "gå", &Parser::go ) );		
+		commands.insert( std::make_pair( "flytta", &Parser::go ) );
+		commands.insert( std::make_pair( "anfall", &Parser::fight ) );
+		commands.insert( std::make_pair( "attackera", &Parser::fight ) );
+		commands.insert( std::make_pair( "plocka", &Parser::pick ) );
+		commands.insert( std::make_pair( "kasta", &Parser::drop ) );
+		commands.insert( std::make_pair( "prata", &Parser::talk ) );
+		//commands.insert( std::make_pair( "använd", &Parser::use ) );
 	}
 
 	bool Parser::run()
@@ -39,8 +50,9 @@ namespace licf
 			return true;
 		}
 
-		// Call the function corresponding to the command.
-		(this->*(it->second))(ss.str());
+		// Call the function corresponding to the command. TODO: this allows only two-word commands
+		ss >> s;
+		(this->*(it->second))(s);
 
 		// Check if the player has won the game.
 		return !finished();
@@ -58,10 +70,6 @@ namespace licf
 	}
 	
 	bool Parser::go(std::string s){
-		std::stringstream ss(s);
-		ss >> s; // overwrite s with the first word in the command
-		ss >> s; // s will now containg the direction to move
-
 		// Find the corresponding direction from Direction enum.
 		std::map< std::string, Direction >::iterator dir = dirs.find(s);
 		// If it doesn't exist, return
@@ -95,4 +103,29 @@ namespace licf
 		std::cout << '\n' << s << '\n';
 		return false;
 	}
+	
+	bool Parser::drop(std::string s)
+	{
+		bool ret = gs.player->drop(s);
+		if (!ret)
+			std::cout << "Den gubben gick inte...\n";
+		return ret;
+	}
+	
+	bool Parser::pick(std::string s)
+	{
+		Object * o = gs.player->environment->get_object(s);
+		if (o == nullptr)
+		{	
+			std::cout << "Finns inget sådant objekt\n";
+			return false;
+		}
+		bool ret = gs.player->pick_up(o);
+		if (!ret)
+			std::cout << "Kunde inte plocka upp objektet ifråga\n";
+		return ret;
+	}
+	
+	bool Parser::talk(std::string){return false;}
+		
 }

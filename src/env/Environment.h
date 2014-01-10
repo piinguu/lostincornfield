@@ -26,8 +26,9 @@ namespace licf
 		void enter(Actor *);
 		void leave(Actor *);
 		
-		Actor * get_actor(std::string name) const;
+		Actor * get_actor(const std::string & name) const;
 		Actor * get_actor(int number) const;
+		Object * get_object(const std::string & name) const;
 
 		virtual std::string description() const = 0;
 		virtual bool pick_up(Object *) = 0;

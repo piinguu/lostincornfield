@@ -16,6 +16,11 @@ namespace licf
 		
 		bool go(std::string);
 		bool fight(std::string);
+		bool drop(std::string);
+		bool pick(std::string);
+		bool talk(std::string);
+		//bool use(std::string);
+
 	public:
 		Parser(GameStuff & g);
 		

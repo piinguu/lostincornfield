@@ -13,4 +13,15 @@ namespace licf
 		
 		return Actor::hitted(a);
 	}
+	
+	bool Player::drop(std::string & s)
+	{
+		for (auto it = objects.begin(); it != objects.end(); ++it)
+			if ((*it)->type() == s)
+			{
+				Object * o = *it;
+				return Human::drop(o);
+			}
+		return false;
+	}
 }
