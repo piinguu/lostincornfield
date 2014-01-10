@@ -11,5 +11,7 @@ namespace licf {
 		virtual double volume() const = 0;
 
 		virtual std::string type() const = 0;
+		
+		virtual void use(Actor *) = 0;
     };
 }
