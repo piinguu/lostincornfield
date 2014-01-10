@@ -10,24 +10,7 @@ namespace licf
 	{
 		std::stringstream ss;
 		ss << "Du står mitt i ett majsfält...\n";
-		if (objects.size() > 0)
-		{
-			ss << "Det ligger lite prylar på marken: ";
-			for (int i = 0; i < objects.size() - 1; ++i)
-				ss << objects[i]->type() << ", ";
-			ss << objects[objects.size() - 1]->type() << '\n';
-
-		}
-		
-		if (actors.size() > 0)
-		{
-			ss << "Du ser minst en annan levande varelse: ";
-			auto it = actors.begin();
-			ss << it->second->type();
-			for (++it; it != actors.end(); ++it)
-				ss << ", " << it->second->type();
-			ss << std::endl;
-		}
+		ss << Environment::description();
 		return ss.str();
 	}
 	

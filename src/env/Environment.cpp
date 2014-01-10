@@ -1,6 +1,7 @@
 #include "Environment.h"
 
 #include<iterator>
+#include<sstream>
 
 #include "../actors/Actor.h"
 
@@ -65,4 +66,35 @@ namespace licf
 				return objects[i];
 		return nullptr;
 	}
+
+	std::string Environment::description() const {
+		std::stringstream ss;
+		std::vector<Direction> dirs = directions();
+		ss << "Möjliga vägar att välja mellan: ";
+		// TODO: detta skriver ut ett tal (0,1,2,3) och inte motsvarande enumvärde.
+		for (int i = 0; i < dirs.size() - 1; ++i)
+			ss << dirs[i] << ", ";
+		ss << dirs[dirs.size() - 1] << '\n';
+
+		if (objects.size() > 0)
+		{
+			ss << "Det ligger lite prylar på marken: ";
+			for (int i = 0; i < objects.size() - 1; ++i)
+				ss << objects[i]->type() << ", ";
+			ss << objects[objects.size() - 1]->type() << '\n';
+		}
+		
+		if (actors.size() > 0)
+		{
+			ss << "Du ser minst en annan levande varelse: ";
+			auto it = actors.begin();
+			ss << it->second->type();
+			for (++it; it != actors.end(); ++it)
+				ss << ", " << it->second->type();
+			ss << std::endl;
+		}
+		return ss.str();
+	}
+
+
 }

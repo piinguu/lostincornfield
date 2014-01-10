@@ -17,6 +17,7 @@ namespace licf
 		std::map<Direction, Environment*> neighbors;
 		std::vector<Object*> objects;
 	public:
+
 		std::map<std::string, Actor*> actors;
 
 		bool add_neighbor(Environment*, Direction);
@@ -30,7 +31,7 @@ namespace licf
 		Actor * get_actor(int number) const;
 		Object * get_object(const std::string & name) const;
 
-		virtual std::string description() const = 0;
+		virtual std::string description() const;
 		virtual bool pick_up(Object *) = 0;
 		virtual bool drop(Object *) = 0;
 	};
