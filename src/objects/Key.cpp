@@ -1,5 +1,7 @@
 #include "key.h"
 
+#include <sstream>
+
 namespace licf {
 	std::string Key::description() const {
 		std::stringstream ss;
@@ -9,7 +11,5 @@ namespace licf {
 		return ss.str();
 	}
 
-	void Key::use(Actor *) {
-		
-	}
+
 }

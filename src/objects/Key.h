@@ -10,6 +10,6 @@ namespace licf {
 
 		std::string type() const { return "key"; }
 
-		void use(Actor *);
+		//void use(Actor *);
 	};
 }
