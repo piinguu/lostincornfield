@@ -4,6 +4,8 @@
 
 namespace licf {
 	class Healing : public Object {
+		std::string description() const;
+		
         virtual double weight() const = 0;
         virtual double volume() const = 0;
 
