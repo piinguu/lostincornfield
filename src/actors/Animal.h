@@ -10,6 +10,7 @@ namespace licf
 
 		bool pick_up(Object *);
 		bool drop(Object *);
+		std::string name() const { return type(); }
 	
 		virtual void talk() const = 0;
 		virtual double max_hp() const = 0;

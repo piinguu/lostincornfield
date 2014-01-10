@@ -15,6 +15,9 @@ namespace licf{
 		void action();
 		bool drop(std::string &);
 		
+		std::string name() const { return "jag"; }
+		std::string get_inventory_description() const;
+		
 		//overriding Actor
 		bool hitted(Actor *);
 	};

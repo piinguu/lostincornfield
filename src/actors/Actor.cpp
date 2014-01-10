@@ -5,7 +5,6 @@
 namespace licf{
 	void Actor::go(Direction dir)
 	{
-		std::cout << "Actor: Going " << dir << std::endl;
 		//move to new environment in given direction, if possible
 		Environment * env = environment->neighbor(dir);
 		if (env == nullptr)
@@ -25,11 +24,6 @@ namespace licf{
 	/* Default action : nothing happens. Should be overridden by any class that can perform an action */
 	void Actor::action() {}
 	
-	std::string Actor::name() const
-	{
-		return "";
-	}
-	
 	void Actor::talk_to(Actor *) const
 	{
 		std::cout << "(silence)\n";
@@ -37,9 +31,15 @@ namespace licf{
 	
 	bool Actor::hitted(Actor * a)
 	{
+		//std::cout << a->type() << " slår på " << type() << std::endl;
+		//std::cout << "Attack rate: " << a->attack_rate << ", hp: " << hp << std::endl;
 		hp -= a->attack_rate;
 		if (hp > 0)
+		{
+			//std::cout << type() << " lever, hp: " << hp << "\n";
 			return true;
+		}
+		//std::cout << type() << " dog\n";
 		//else, actor is dead
 		environment->leave(this);
 		return false;

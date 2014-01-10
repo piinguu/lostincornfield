@@ -20,6 +20,10 @@ namespace licf
 		bool pick(std::string);
 		bool talk(std::string);
 		//bool use(std::string);
+		bool quit(std::string);
+		bool info(std::string);
+		bool help(std::string);
+		bool look(std::string);
 
 	public:
 		Parser(GameStuff & g);
