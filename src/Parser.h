@@ -12,9 +12,9 @@ namespace licf
 		GameStuff gs;
 		int n;
 		std::map< std::string, funcptr > commands;
+		std::map< std::string, Direction > dirs;
 		
 		bool go(std::string);
-		bool command(std::string);
 		bool fight(std::string);
 	public:
 		Parser(GameStuff & g);

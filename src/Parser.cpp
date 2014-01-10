@@ -10,32 +10,26 @@ namespace licf
 {
 	Parser::Parser(GameStuff & g) : gs(g), n(0) 
 	{
-		//std::pair< std::string, bool(*)(std::string) > p = 
-		//		std::make_pair("hej", &Parser::command);
+		// Fill map containing all valid directions
+		dirs.insert( std::make_pair( "east", East ) );
+		dirs.insert( std::make_pair( "west", West ) );
+		dirs.insert( std::make_pair( "north", North ) );
+		dirs.insert( std::make_pair( "south", South ) );
+
+		// Fill the map containing commands give each a function pointer
 		commands.insert( std::make_pair( "go", &Parser::go ) );
+		commands.insert( std::make_pair( "gå", &Parser::go ) );
 		commands.insert( std::make_pair( "fight", &Parser::fight ) );
-//		commands.insert( make_pair("hej", &Parser::command) );
-	}
-
-	bool Parser::command(std::string s) {
-		std::cout << s << '\n';
-		return false;
-	}
-
-	bool Parser::fight(std::string s) {
-		std::cout << '\n' << s << '\n';
-		return false;
 	}
 
 	bool Parser::run()
 	{
 		std::string s;
-		std::getline(std::cin, s);
+		std::getline(std::cin, s); // read a line from shell
 
-		std::stringstream ss(s);
-		ss >> s;
+		std::stringstream ss(s); 
+		ss >> s; // read first word from line
 		
-		//std::cout << "nytt command: " << s << '\n';
 		funcptr fp = commands[s];
 		std::cout << (this->*fp)(ss.str()) << std::endl;
 /*		if (s == "quit")
@@ -45,38 +39,51 @@ namespace licf
 			return true;
 		}
 		
-		//read direction
-		ss >> s;
-		
-		if (s == "north")
-			go(North);
-		else if (s == "south")
-			go(South);
-		else if (s == "west")
-			go(West);
-		else if (s == "east")
-			go(East);
-		else
-			std::cout << "ERROR!!!\n";
 */
 		return !finished();
 	}
-	
-	bool Parser::go(std::string s){
-		/*
-		Environment * oldenv = gs.player->environment;
-		gs.player->go(dir);
-		if (oldenv != gs.player->environment)
-			std::cout << gs.player->environment->description();
-		return oldenv != gs.player->environment;
-		*/
-		std::cout << '\n' << s << '\n';
-		return true;
-	}
 
+	/**
+	 * Check if the player has won the game.
+	 * Return true if the game is won, false otherwise.
+	 */
 	bool Parser::finished() {
 		if (dynamic_cast<Goal *>(gs.player->environment))
 			return true;
+		return false;
+	}
+	
+	bool Parser::go(std::string s){
+		std::stringstream ss(s);
+		ss >> s; // overwrite s with the first word in the command
+		ss >> s; // s will now containg the direction to move
+
+		// Find the corresponding direction from Direction enum.
+		std::map< std::string, Direction >::iterator dir = dirs.find(s);
+		// If it doesn't exist, return
+		if (dir == dirs.end()) {
+			std::cout << "Riktning finns inte!\n";
+			return false;
+		}
+
+		// Save the old environment and try moving the player
+		Environment * oldenv = gs.player->environment;
+		gs.player->go(dir->second);
+
+		// If the old and new environment are different, the move was succesful
+		if (oldenv != gs.player->environment) {
+			std::cout << gs.player->environment->description();
+			return true;
+		}
+
+		// The move was not succesful
+		// TODO: write something to std::cout??
+		return false;
+	}
+
+	bool Parser::fight(std::string s) {
+		// TODO:
+		std::cout << '\n' << s << '\n';
 		return false;
 	}
 }
