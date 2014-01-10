@@ -30,7 +30,7 @@ namespace licf
 		commands.insert( std::make_pair( "plocka", &Parser::pick ) );
 		commands.insert( std::make_pair( "kasta", &Parser::drop ) );
 		commands.insert( std::make_pair( "prata", &Parser::talk ) );
-		//commands.insert( std::make_pair( "använd", &Parser::use ) );
+		commands.insert( std::make_pair( "använd", &Parser::use ) );
 		commands.insert( std::make_pair( "avsluta", &Parser::quit ) );
 		commands.insert( std::make_pair( "info", &Parser::info ) );
 		commands.insert( std::make_pair( "hjälp", &Parser::help ) );
@@ -171,8 +171,18 @@ namespace licf
 			if (o == nullptr)
 				std::cout << "Finns inget sådant objekt på marken.\n";
 			else
-				std::cout << o->type() << std::endl;
+				std::cout << o->description() << std::endl;
 		}
+		return true;
+	}
+	
+	bool Parser::use(std::string s)
+	{
+		Object * o = gs.player->get_object(s);
+		if (o == nullptr)
+			std::cout << "Finns inte.\n";
+		else
+			o->use(gs.player);
 		return true;
 	}
 

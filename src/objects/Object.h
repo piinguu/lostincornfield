@@ -3,6 +3,8 @@
 #include <string>
 
 namespace licf {
+	class Actor;
+	
     class Object {
     public:
     	virtual std::string description() const;
@@ -12,6 +14,6 @@ namespace licf {
 
 		virtual std::string type() const = 0;
 		
-		//virtual void use(Actor *) = 0;
+		virtual void use(Actor *) {}
     };
 }

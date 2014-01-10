@@ -19,7 +19,7 @@ namespace licf
 		bool drop(std::string);
 		bool pick(std::string);
 		bool talk(std::string);
-		//bool use(std::string);
+		bool use(std::string);
 		bool quit(std::string);
 		bool info(std::string);
 		bool help(std::string);

@@ -39,4 +39,12 @@ namespace licf
 			ss << ", " << (*it)->type();
 		return ss.str();
 	}
+	
+	Object * Player::get_object(const std::string & s) const
+	{
+		for (auto it = objects.begin(); it != objects.end(); ++it)
+			if ((*it)->type() == s)
+				return *it;
+		return nullptr;
+	}
 }

@@ -12,5 +12,7 @@ namespace licf {
         virtual double healing_rate() const = 0;
 
         virtual std::string type() const = 0;
+        
+        void use(Actor *);
 	};
 }
