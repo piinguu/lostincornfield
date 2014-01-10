@@ -1,0 +1,13 @@
+Inte skriva ut player hela tiden
+
+Lägg till utgångar i env description
+
+Fixa use i resterande objekt
+
+Player: 
+	max vikt att bära
+	max antal saker (utan behållare)
+
+Lägg till ryggsäck
+
+Fixa mål
