@@ -11,14 +11,10 @@ namespace licf
 	Parser::Parser(GameStuff & g) : gs(g), n(0) 
 	{
 		// Fill map containing all valid directions
-		dirs.insert( std::make_pair( "ost", East ) );
-		dirs.insert( std::make_pair( "väst", West ) );
-		dirs.insert( std::make_pair( "norr", North ) );
-		dirs.insert( std::make_pair( "syd", South ) );
-		dirs.insert( std::make_pair( "öster", East ) );
-		dirs.insert( std::make_pair( "väster", West ) );
-		dirs.insert( std::make_pair( "norrut", North ) );
-		dirs.insert( std::make_pair( "söder", South ) );
+		dirs.insert( std::make_pair( "east", East ) );
+		dirs.insert( std::make_pair( "west", West ) );
+		dirs.insert( std::make_pair( "north", North ) );
+		dirs.insert( std::make_pair( "south", South ) );
 
 		// Fill the map containing commands give each a function pointer
 		commands.insert( std::make_pair( "go", &Parser::go ) );
@@ -28,22 +24,25 @@ namespace licf
 
 	bool Parser::run()
 	{
+		std::cout << "> ";
 		std::string s;
 		std::getline(std::cin, s); // read a line from shell
 
 		std::stringstream ss(s); 
 		ss >> s; // read first word from line
 		
-		funcptr fp = commands[s];
-		std::cout << (this->*fp)(ss.str()) << std::endl;
-/*		if (s == "quit")
-			return false;
-		else if (s != "go"){
-			std::cout << " illegal inmatning\n";
+		// Find the command given
+		std::map< std::string, funcptr >::iterator it = commands.find(s);
+		// If it doesn't exist, let the player try again.
+		if (it == commands.end()) {
+			std::cout << "Felaktigt kommando!\n";
 			return true;
 		}
-		
-*/
+
+		// Call the function corresponding to the command.
+		(this->*(it->second))(ss.str());
+
+		// Check if the player has won the game.
 		return !finished();
 	}
 
@@ -52,6 +51,7 @@ namespace licf
 	 * Return true if the game is won, false otherwise.
 	 */
 	bool Parser::finished() {
+		// TODO: update with winning criteria
 		if (dynamic_cast<Goal *>(gs.player->environment))
 			return true;
 		return false;
