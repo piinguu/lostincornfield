@@ -5,7 +5,7 @@
 namespace licf {
     class Object {
     public:
-    	virtual std::string description() const = 0;
+    	virtual std::string description() const;
 
         virtual double weight() const = 0;
 		virtual double volume() const = 0;
