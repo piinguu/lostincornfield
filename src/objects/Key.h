@@ -9,5 +9,7 @@ namespace licf {
 		double volume() const { return 1; }
 
 		std::string type() const { return "key"; }
+
+		void use(Actor *);
 	};
 }

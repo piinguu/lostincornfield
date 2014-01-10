@@ -8,4 +8,8 @@ namespace licf {
 		ss << "Volym: " << volume() << '\n';
 		return ss.str();
 	}
+
+	void Key::use(Actor *) {
+		
+	}
 }
