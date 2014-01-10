@@ -11,10 +11,14 @@ namespace licf
 	Parser::Parser(GameStuff & g) : gs(g), n(0) 
 	{
 		// Fill map containing all valid directions
-		dirs.insert( std::make_pair( "east", East ) );
-		dirs.insert( std::make_pair( "west", West ) );
-		dirs.insert( std::make_pair( "north", North ) );
-		dirs.insert( std::make_pair( "south", South ) );
+		dirs.insert( std::make_pair( "ost", East ) );
+		dirs.insert( std::make_pair( "väst", West ) );
+		dirs.insert( std::make_pair( "norr", North ) );
+		dirs.insert( std::make_pair( "syd", South ) );
+		dirs.insert( std::make_pair( "öster", East ) );
+		dirs.insert( std::make_pair( "väster", West ) );
+		dirs.insert( std::make_pair( "norrut", North ) );
+		dirs.insert( std::make_pair( "söder", South ) );
 
 		// Fill the map containing commands give each a function pointer
 		commands.insert( std::make_pair( "go", &Parser::go ) );
@@ -82,6 +86,11 @@ namespace licf
 	}
 
 	bool Parser::fight(std::string s) {
+		Actor * a = gs.player->environment->get_actor(s);
+		if (a == nullptr)
+			std::cout << "Finns ingen sådan person...\n";
+		else
+			gs.player->fight(a);
 		// TODO:
 		std::cout << '\n' << s << '\n';
 		return false;

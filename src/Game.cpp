@@ -1,10 +1,31 @@
 #include "Game.h"
 
 #include<iostream>
-#include<vector>
-
 
 using namespace licf;
+
+void generate_map(GameStuff & gs);
+void print_introduction();
+
+int main()
+{
+	//initialize
+	GameStuff gs;
+	generate_map(gs);
+	
+	Parser p(gs);
+	
+	//run the game
+	print_introduction();
+	while (p.run()){
+		for (auto it = gs.actors.begin(); it != gs.actors.end(); ++it)
+			(*it)->action();
+	}
+	
+	//wrap up
+	gs.cleanup();	
+	return 0;
+}
 
 void generate_map(GameStuff & gs)
 {
@@ -48,19 +69,27 @@ void generate_map(GameStuff & gs)
 	bee->environment = cf1;
 }
 
-int main()
+void print_introduction()
 {
-	GameStuff gs;
-	generate_map(gs);
-	
-	Parser p(gs);
-	
-	while (p.run()){
-		for (auto it = gs.actors.begin(); it != gs.actors.end(); ++it)
-			(*it)->action();
-	}
-	
-	gs.cleanup();
-	
-	return 0;
+	//general introduction
+	std::cout 	<< "Du vaknar upp, och har ingen aning om var \n"
+				<< "du befinner. Du ligger på rygg, och ser en \n"
+				<< "klarblå himmel, och några höga, märkliga \n"
+				<< "träd... Vid närmare inspektion är det inte \n"
+				<< "träd utan majsplantor: du befinner dig mitt \n"
+				<< "i en majsodling med tre meter hög vegetation \n"
+				<< "runtomkring dig. Hur ska du hitta hem?\n\n";
+	//how to win
+	std::cout 	<< "För att vinna, ta dig till närmaste väg och\n"
+				<< "hoppas på att en bil råkar passera (det händer\n"
+				<< "titt som tätt.\n";
+	//commands
+	std::cout	<< "För att förflytta dig i spelet, ge kommandot\n"
+				<< "'gå norr' för att gå norrut etc. Interagera\n"
+				<< "med objekt genom 'plocka honung', 'kasta plåster'\n"
+				<< "etc., och med personer genom t.ex. 'anfall orm'\n"
+				<< "eller 'prata bonde'.\n";
+	//final wishing good luck
+	std::cout	<< "Lycka till, och kom ihåg att i ett majsfält finns\n"
+				<< "det sällan någon som hör dig ropa...\n\n";
 }

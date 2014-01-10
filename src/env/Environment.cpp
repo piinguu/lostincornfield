@@ -2,6 +2,8 @@
 
 #include<iterator>
 
+#include "../actors/Actor.h"
+
 namespace licf
 {
 	typedef std::pair<Direction, Environment*> DirEnv;
@@ -27,6 +29,32 @@ namespace licf
 		auto it = neighbors.find(d);
 		if (it == neighbors.end())
 			return nullptr;
+		return it->second;
+	}
+	
+	void Environment::enter(Actor * a)
+	{
+		actors.insert( std::make_pair(a->name(), a));
+	}
+	
+	void Environment::leave(Actor * a)
+	{
+		auto it = actors.find(a->name());
+		if (it == actors.end())
+			return;
+		actors.erase(it);
+	}
+	
+	Actor * Environment::get_actor(std::string name) const
+	{
+		auto it = actors.find(name);
+		return it == actors.end() ? nullptr : it->second;
+	}
+	
+	Actor * Environment::get_actor(int number) const
+	{
+		auto it = actors.begin();
+		std::advance(it, number % actors.size());
 		return it->second;
 	}
 }

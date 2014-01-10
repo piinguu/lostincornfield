@@ -6,8 +6,6 @@ namespace licf
 	{
 	public:
 		std::string description() const;
-		void enter(Actor *);
-		void leave(Actor *);
 		bool pick_up(Object *);
 		bool drop(Object *);
 	};

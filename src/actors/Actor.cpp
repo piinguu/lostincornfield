@@ -52,7 +52,6 @@ namespace licf{
 	
 	Actor * Actor::random_actor()
 	{
-		std::vector<Actor *> actors = environment->actors;
-		return actors[next_rand(actors.size())];
+		return environment->get_actor(next_rand(RAND_MAX));
 	}
 }

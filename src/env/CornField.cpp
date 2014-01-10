@@ -16,31 +16,19 @@ namespace licf
 			for (int i = 0; i < objects.size() - 1; ++i)
 				ss << objects[i]->type() << ", ";
 			ss << objects[objects.size() - 1]->type() << '\n';
+
 		}
 		
 		if (actors.size() > 0)
 		{
 			ss << "Du ser minst en annan levande varelse: ";
-			for (int i = 0; i < actors.size() - 1; ++i)
-				ss << actors[i]->type() << ", ";
-			ss << actors[actors.size() - 1]->type() << '\n';
+			auto it = actors.begin();
+			ss << it->second->type();
+			for (++it; it != actors.end(); ++it)
+				ss << ", " << it->second->type();
+			ss << std::endl;
 		}
 		return ss.str();
-	}
-	
-	void CornField::enter(Actor * a)
-	{
-		actors.push_back(a);
-	}
-	
-	void CornField::leave(Actor * a)
-	{
-		for (auto it = actors.begin(); it != actors.end(); ++it)
-			if (*it == a)
-			{
-				actors.erase(it);
-				return;
-			}
 	}
 	
 	bool CornField::pick_up(Object * o)

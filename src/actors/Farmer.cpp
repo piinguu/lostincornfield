@@ -13,7 +13,7 @@ namespace licf
 		int bees = 0;
 		for (auto it = environment->actors.begin(); it != environment->actors.end(); ++it)
 		{
-			if (dynamic_cast<Bee*>(*it) != nullptr)
+			if (dynamic_cast<Bee*>(it->second) != nullptr)
 			{
 				++bees;
 			}
