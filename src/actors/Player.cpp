@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include<sstream>
+
 namespace licf
 {
 	void Player::action()
@@ -23,5 +25,18 @@ namespace licf
 				return Human::drop(o);
 			}
 		return false;
+	}
+	
+	std::string Player::get_inventory_description() const
+	{
+		if (objects.size() == 0)
+			return "(tom)";
+			
+		std::stringstream ss;
+		auto it = objects.begin();
+		ss << (*it)->type();
+		for (++it; it != objects.end(); ++it)
+			ss << ", " << (*it)->type();
+		return ss.str();
 	}
 }

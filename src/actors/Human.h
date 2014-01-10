@@ -8,7 +8,10 @@ namespace licf
 		double fist_power;
 		
 	public:
-		Human(double max_hp) : Actor(max_hp), fist_power(10) {};
+		Human(double max_hp) : Actor(max_hp), fist_power(10)
+		{
+			attack_rate = fist_power;
+		}
 		
 		void fight(Actor *);
 		bool pick_up(Object *);

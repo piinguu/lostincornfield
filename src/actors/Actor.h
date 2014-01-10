@@ -35,7 +35,7 @@ namespace licf{
 		
 		virtual bool hitted(Actor *);
 		virtual void action();
-		virtual std::string name() const;
+		virtual std::string name() const = 0;
 		virtual void talk_to(Actor *) const;
 	
 		virtual double max_hp() const = 0;
