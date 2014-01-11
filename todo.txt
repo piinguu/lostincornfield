@@ -1,3 +1,1 @@
-Inte skriva ut player hela tiden
-
 Fixa use i resterande objekt

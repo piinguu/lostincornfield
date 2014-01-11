@@ -4,6 +4,7 @@
 #include<sstream>
 
 #include "../actors/Actor.h"
+#include "../actors/Player.h"
 
 namespace licf
 {
@@ -84,13 +85,18 @@ namespace licf
 			ss << objects[objects.size() - 1]->type() << '\n';
 		}
 		
-		if (actors.size() > 0)
+		if (actors.size() > 1)
 		{
 			ss << "Du ser minst en annan levande varelse: ";
 			auto it = actors.begin();
+			
+			if (dynamic_cast<Player*>(it->second) != nullptr)
+				++it;
+			
 			ss << it->second->type();
 			for (++it; it != actors.end(); ++it)
-				ss << ", " << it->second->type();
+				if (dynamic_cast<Player*>(it->second) == nullptr)
+					ss << ", " << it->second->type();
 			ss << std::endl;
 		}
 		return ss.str();

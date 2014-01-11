@@ -1,6 +1,6 @@
 #include "Player.h"
 
-#include "../objects/BackPack.h"
+#include "../objects/Backpack.h"
 
 #include<sstream>
 #include <iostream>
