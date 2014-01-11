@@ -10,13 +10,23 @@ namespace licf
 {
 	void Human::fight(Actor * a)
 	{
-		while (hp > 0){
-			if (!a->hitted(this)){
-				std::cout << "Motståndaren dog.\n";
-				return;
-			}
-			//motståndaren slår
+		double prev_hp = a->hp;
+		std::cout << "Du slår en gång... ";
+		a->hitted(this);
+		if (a->hp > 0)
+			std::cout << "fienden förlorar " << (prev_hp - a->hp) << std::endl;
+		else
+		{
+			std::cout << "fienden dör\n";
+			return;
 		}
+		prev_hp = hp;
+		std::cout << "Fienden slår tillbaka... ";
+		Actor::hitted(a);
+		if (hp > 0)
+			std::cout << "du förlorar " << (prev_hp - hp) << std::endl;
+		else
+			std::cout << "du dör.\n";
 	}
 	
 	bool Human::pick_up(Object * o)
@@ -24,8 +34,8 @@ namespace licf
 		if (environment->drop(o)){ //environment dropped the object -> contained it...
 			objects.push_back(o);
 
-			Weapon * w = static_cast<Weapon*>(o);
-			if (w->attack_rate() > attack_rate)
+			Weapon * w = dynamic_cast<Weapon*>(o);
+			if (w != nullptr && w->attack_rate() > attack_rate)
 				attack_rate = w->attack_rate();
 
 			return true;
@@ -38,7 +48,7 @@ namespace licf
 	{
 		//find the object and remove it
 		for (auto it = objects.begin(); it != objects.end(); ++it)
-			if ((*it) == o){ //TODO: does this comparison work?
+			if ((*it) == o){
 				if (environment->pick_up(o)){
 					objects.erase(it);
 					
@@ -46,13 +56,13 @@ namespace licf
 
 					for (auto it = objects.begin(); it != objects.end(); ++it){
 						Object * o = *it;
-						Weapon * w = static_cast<Weapon*>(o);
-						//TODO: test if the static_cast behaves as we want it to behave
+						Weapon * w = dynamic_cast<Weapon*>(o);
 						if (w->attack_rate() > max_power)
 							max_power = w->attack_rate();
 					}
 					
-					if (attack_rate != max_power){
+					double diff = attack_rate - max_power;
+					if ((diff < 0.1) && (-diff < 0.1)){ //drop changed attack rate
 						attack_rate = max_power;
 						std::cout << "Bästa vapnet har nu styrkan " << attack_rate << std::endl;
 					}

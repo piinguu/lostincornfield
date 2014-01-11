@@ -45,4 +45,5 @@ namespace licf{
 		virtual bool drop(Object *) = 0;
 		virtual void talk() const = 0;
 	};
+	std::ostream & operator<<(std::ostream & os, const Actor * actor);
 }
