@@ -8,6 +8,6 @@ namespace licf {
 
 		std::string type() const { return "nyckel"; }
 
-		//void use(Actor *);
+		void use(Actor *);
 	};
 }

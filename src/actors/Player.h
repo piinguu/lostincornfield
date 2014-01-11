@@ -5,7 +5,9 @@
 namespace licf{
 	class Player : public Human{
 	public:
-		Player() : Human(100) {}
+		bool winner;
+		Player() : Human(100), winner(false) {}
+		
 		double max_hp() const { return 100; }
 		double hold_weight() const { return 20; }
 		double hold_volume() const { return 60; }

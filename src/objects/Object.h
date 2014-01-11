@@ -14,6 +14,6 @@ namespace licf {
 
 		virtual std::string type() const = 0;
 		
-		virtual void use(Actor *) {}
+		virtual void use(Actor *);
     };
 }

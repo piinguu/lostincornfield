@@ -65,10 +65,10 @@ namespace licf
 	 * Return true if the game is won, false otherwise.
 	 */
 	bool Parser::finished() {
-		// TODO: update with winning criteria
-		if (dynamic_cast<Goal *>(gs.player->environment))
+		return gs.player->winner;
+/*		if (dynamic_cast<Goal *>(gs.player->environment))
 			return true;
-		return false;
+		return false;*/
 	}
 	
 	bool Parser::go(std::string s){
