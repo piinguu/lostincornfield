@@ -9,6 +9,6 @@ Player:
 	max vikt att bära (med och utan behållare)
 	max antal saker (utan behållare)
 
-Lägg till ryggsäck
-
 Fixa mål
+
+Ta bort döda aktörer och använda saker från gs.
