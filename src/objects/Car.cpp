@@ -1,6 +1,7 @@
 #include "Car.h"
 
 #include<sstream>
+#include<iostream>
 
 namespace licf
 {
@@ -11,7 +12,7 @@ namespace licf
 		return ss.str();
 	}
 	
-	void use(Actor *)
+	void Car::use(Actor *)
 	{
 		std::cout << "Du trevar runt i fickorna... har du nyckeln?\n";
 	}
