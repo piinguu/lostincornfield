@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include "../objects/BackPack.h"
+
 #include<sstream>
 #include <iostream>
 
@@ -27,6 +29,12 @@ namespace licf
 				if (success) {
 					weight -= o->weight();
 					volume -= o->volume();
+
+					if (o->type() == "ryggsäck") {
+						volume -= dynamic_cast<Backpack*>(o)->pack_volume;
+						weight -= dynamic_cast<Backpack*>(o)->max_weight;
+						backpack = false;
+					}
 				}
 				return success;
 			}
@@ -34,8 +42,16 @@ namespace licf
 	}
 
 	bool Player::pick_up(Object * o) {
+		// Did we pick up a backpack?
+		if (o->type() == "ryggsäck") {
+			volume += dynamic_cast<Backpack*>(o)->pack_volume;
+			weight += dynamic_cast<Backpack*>(o)->max_weight;
+			backpack = true;
+		}
+
 		// If player can pick up item
-		if (weight + o->weight() <= hold_weight() &&
+		if ((backpack || objects.size() < 2) &&
+			weight + o->weight() <= hold_weight() &&
 			volume + o->volume() <= hold_volume())
 		{
 			// If item is picked up
