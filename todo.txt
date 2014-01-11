@@ -1,8 +1,5 @@
 Inte skriva ut player hela tiden
 
-Lägg till utgångar i env description
-	Update: Fixa enkelt sätt att gå från int (0,1,2,3) till enumvärde
-
 Fixa use i resterande objekt
 
 Player: 
