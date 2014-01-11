@@ -5,7 +5,10 @@
 namespace licf
 {
 	struct Snake : public Animal {
-		Snake() : Animal(50) {}
+		Snake() : Animal(50)
+		{
+			attack_rate = 25; 
+		}
 		double max_hp() const { return 50; }
 		std::string type() const { return "orm"; }
 	

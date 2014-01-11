@@ -4,17 +4,16 @@
 
 namespace licf{
 	class Player : public Human{
-		double weight;
-		double volume;
+		double weight, volume, hweight, hvolume;
 		bool backpack;
 	public:
 		bool winner;
 		Player() : Human(100), weight(0), volume(0), backpack(false),
-					winner(false) {}
+					winner(false), hweight(10), hvolume(30) {}
 
 		double max_hp() const { return 100; }
-		double hold_weight() const { return 20; }
-		double hold_volume() const { return 60; }
+		double hold_weight() const { return hweight; }
+		double hold_volume() const { return hvolume; }
 	
 		std::string type() const { return "player"; }
 		

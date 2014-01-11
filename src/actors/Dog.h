@@ -8,12 +8,12 @@ namespace licf
 	private:
 		int aggression_level;
 	public:	
-		Dog(int agg) : Animal(20), aggression_level(agg)
+		Dog(int agg) : Animal(78), aggression_level(agg)
 		{
 			attack_rate = 30;
 		}
 		
-		double max_hp() const { return 20; }
+		double max_hp() const { return 78; }
 
 		std::string type() const;
 		

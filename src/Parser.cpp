@@ -88,7 +88,7 @@ namespace licf
 		// If the old and new environment are different, the move was succesful
 		if (oldenv != gs.player->environment) {
 			std::cout << gs.player->environment->description();
-			return !finished();
+			return true;
 		}
 
 		// The move was not succesful
@@ -214,7 +214,7 @@ namespace licf
 			std::cout << "Finns inte.\n";
 		else
 			o->use(gs.player);
-		return true;
+		return !finished();
 	}
 
 }

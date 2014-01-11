@@ -37,8 +37,8 @@ namespace licf
 					volume -= o->volume();
 
 					if (o->type() == "ryggsäck") {
-						volume -= dynamic_cast<Backpack*>(o)->pack_volume;
-						weight -= dynamic_cast<Backpack*>(o)->max_weight;
+						hvolume -= dynamic_cast<Backpack*>(o)->pack_volume;
+						hweight -= dynamic_cast<Backpack*>(o)->max_weight;
 						backpack = false;
 					}
 				}
@@ -50,8 +50,8 @@ namespace licf
 	bool Player::pick_up(Object * o) {
 		// Did we pick up a backpack?
 		if (o->type() == "ryggsäck") {
-			volume += dynamic_cast<Backpack*>(o)->pack_volume;
-			weight += dynamic_cast<Backpack*>(o)->max_weight;
+			hweight += dynamic_cast<Backpack*>(o)->pack_volume;
+			hvolume += dynamic_cast<Backpack*>(o)->max_weight;
 			backpack = true;
 		}
 
