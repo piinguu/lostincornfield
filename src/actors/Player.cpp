@@ -1,12 +1,13 @@
 #include "Player.h"
 
 #include<sstream>
+#include <iostream>
 
 namespace licf
 {
 	void Player::action()
 	{
-	
+		
 	}
 	
 	bool Player::hitted(Actor * a)
@@ -22,8 +23,33 @@ namespace licf
 			if ((*it)->type() == s)
 			{
 				Object * o = *it;
-				return Human::drop(o);
+				bool success = Human::drop(o);
+				if (success) {
+					weight -= o->weight();
+					volume -= o->volume();
+				}
+				return success;
 			}
+		return false;
+	}
+
+	bool Player::pick_up(Object * o) {
+		// If player can pick up item
+		if (weight + o->weight() <= hold_weight() &&
+			volume + o->volume() <= hold_volume())
+		{
+			// If item is picked up
+			bool success = Human::pick_up(o);
+			if (success) {
+				weight += o->weight();
+				volume += o->volume();
+			}
+			else {
+			}
+			return success;
+		}
+		std::cout << "Du har inte tillräckligt med plats för detta objekt.\n";
+		std::cout << "Använd eller släng något objekt innan du kan ta detta.\n";
 		return false;
 	}
 	
