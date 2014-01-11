@@ -7,6 +7,7 @@
 #include "actors/Bee.h"
 #include "actors/Dog.h"
 #include "actors/Snake.h"
+#include "actors/Bird.h"
 
 #include "objects/Honey.h"
 #include "objects/Car.h"

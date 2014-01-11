@@ -1,6 +1,7 @@
 #include "Game.h"
 
 #include<iostream>
+#include<algorithm>
 
 using namespace licf;
 
@@ -21,9 +22,11 @@ int main()
 	//run the game
 	print_introduction();
 	while (p.run())
-		for (auto it = gs.actors.begin(); it != gs.actors.end(); ++it)
-			if ((*it)->hp > 0)
-				(*it)->action();
+		std::for_each(gs.actors.begin(), gs.actors.end(),
+			[] (Actor * actor) {			
+				if (actor->hp > 0)
+					actor->action();
+				});
 	
 	//wrap up
 	gs.cleanup();	
@@ -87,6 +90,7 @@ void generate_presentation_map( GameStuff & gs)
 	Actor * f2 = new Farmer("Melker");
 	Actor * b1 = new Bee();
 	Actor * d1 = new Dog(4);
+	Actor * bird = new Bird();
 
 	gs.actors.push_back(gs.player);
 	gs.actors.push_back(s1);
@@ -95,6 +99,7 @@ void generate_presentation_map( GameStuff & gs)
 	gs.actors.push_back(f2);
 	gs.actors.push_back(b1);
 	gs.actors.push_back(d1);
+	gs.actors.push_back(bird);
 
 	// Generate objects
 	Object * key = new Key();
@@ -172,20 +177,13 @@ void generate_presentation_map( GameStuff & gs)
 
 	// Place actors
 	mappa(c00, s1);
-//	c00->enter(s1);
 	mappa(c11, f1);
-//	c11->enter(f1);
 	mappa(c22, gs.player);
-//	c22->enter(gs.player);
 	mappa(c33, s2);
-//	c33->enter(s2);
 	mappa(c40, f2);
-//	c40->enter(f2);
 	mappa(c41, b1);
-//	c41->enter(b1);
 	mappa(c41, d1);
-//	c41->enter(d1);
-
+	mappa(c32, bird);
 
 
 	// Place objects

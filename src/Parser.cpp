@@ -29,7 +29,9 @@ namespace licf
 		commands.insert( std::make_pair( "anfall", &Parser::fight ) );
 		commands.insert( std::make_pair( "attackera", &Parser::fight ) );
 		commands.insert( std::make_pair( "plocka", &Parser::pick ) );
+		commands.insert( std::make_pair( "ta", &Parser::pick ) );
 		commands.insert( std::make_pair( "kasta", &Parser::drop ) );
+		commands.insert( std::make_pair( "släpp", &Parser::drop ) );
 		commands.insert( std::make_pair( "prata", &Parser::talk ) );
 		commands.insert( std::make_pair( "använd", &Parser::use ) );
 		commands.insert( std::make_pair( "avsluta", &Parser::quit ) );
@@ -65,6 +67,8 @@ namespace licf
 	 * Return true if the game is won, false otherwise.
 	 */
 	bool Parser::finished() {
+		if (gs.player->winner)
+			std::cout << "Segern har infunnit sig!\n";
 		return gs.player->winner;
 /*		if (dynamic_cast<Goal *>(gs.player->environment))
 			return true;
