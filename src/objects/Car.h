@@ -11,6 +11,6 @@ namespace licf
 
 		std::string type() const { return "racerbil"; }
 	
-		//void use(Actor *);
+		void use(Actor *);
 	};
 }
