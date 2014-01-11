@@ -14,6 +14,7 @@ namespace licf
 	{
 		// Fill map containing all valid directions
 		dirs.insert( std::make_pair( "ost", East ) );
+		dirs.insert( std::make_pair( "öst", East ) );
 		dirs.insert( std::make_pair( "väst", West ) );
 		dirs.insert( std::make_pair( "nord", North ) );
 		dirs.insert( std::make_pair( "syd", South ) );
