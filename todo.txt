@@ -6,7 +6,7 @@ Lägg till utgångar i env description
 Fixa use i resterande objekt
 
 Player: 
-	max vikt att bära
+	max vikt att bära (med och utan behållare)
 	max antal saker (utan behållare)
 
 Lägg till ryggsäck
