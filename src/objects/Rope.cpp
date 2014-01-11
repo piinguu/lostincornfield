@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Rope::type() const {
-		return "rope";
+		return "rep";
 	}
 }
 

@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Coulter::type() const {
-		return "coulter";
+		return "lie";
 	}
 }
 

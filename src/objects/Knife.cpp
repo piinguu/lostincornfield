@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Knife::type() const {
-		return "knife";
+		return "kniv";
 	}
 }
 

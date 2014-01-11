@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Painkiller::type() const {
-		return "painkiller";
+		return "värktablett";
 	}
 }
 
