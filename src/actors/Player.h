@@ -4,10 +4,14 @@
 
 namespace licf{
 	class Player : public Human{
+		double weight;
+		double volume;
+		bool backpack;
 	public:
 		bool winner;
-		Player() : Human(100), winner(false) {}
-		
+		Player() : Human(100), weight(0), volume(0), backpack(false),
+					winner(false) {}
+
 		double max_hp() const { return 100; }
 		double hold_weight() const { return 20; }
 		double hold_volume() const { return 60; }
@@ -16,6 +20,7 @@ namespace licf{
 		
 		void action();
 		bool drop(std::string &);
+		bool pick_up(Object *);
 		
 		std::string name() const { return "jag"; }
 		std::string get_inventory_description() const;

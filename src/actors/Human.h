@@ -14,7 +14,7 @@ namespace licf
 		}
 		
 		void fight(Actor *);
-		bool pick_up(Object *);
+		virtual bool pick_up(Object *);
 		bool drop(Object *);
 		void talk() const;
 	
