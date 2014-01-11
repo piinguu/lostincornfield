@@ -1,11 +1,3 @@
 Inte skriva ut player hela tiden
 
 Fixa use i resterande objekt
-
-Player: 
-	max vikt att bära (med och utan behållare)
-	max antal saker (utan behållare)
-
-Fixa mål
-
-Ta bort döda aktörer och använda saker från gs.
