@@ -12,5 +12,3 @@ Player:
 Lägg till ryggsäck
 
 Fixa mål
-
-Ta bort döda aktörer och använda saker från gs.
