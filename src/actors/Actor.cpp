@@ -31,15 +31,10 @@ namespace licf{
 	
 	bool Actor::hitted(Actor * a)
 	{
-		//std::cout << a->type() << " slår på " << type() << std::endl;
-		//std::cout << "Attack rate: " << a->attack_rate << ", hp: " << hp << std::endl;
 		hp -= a->attack_rate;
 		if (hp > 0)
-		{
-			//std::cout << type() << " lever, hp: " << hp << "\n";
 			return true;
-		}
-		//std::cout << type() << " dog\n";
+
 		//else, actor is dead
 		environment->leave(this);
 		return false;
@@ -53,5 +48,14 @@ namespace licf{
 	Actor * Actor::random_actor()
 	{
 		return environment->get_actor(next_rand(RAND_MAX));
+	}
+	
+	std::ostream & operator<<(std::ostream & os, const Actor * actor)
+	{
+		if (actor->type() == actor->name() || actor->name() == "")
+			os << actor->type();
+		else
+			os << actor->name() << " (" << actor->type() << ")";
+		return os;
 	}
 }

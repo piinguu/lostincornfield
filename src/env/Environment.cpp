@@ -93,10 +93,12 @@ namespace licf
 			if (dynamic_cast<Player*>(it->second) != nullptr)
 				++it;
 			
-			ss << it->second->type();
+			ss << it->second;
+			
 			for (++it; it != actors.end(); ++it)
 				if (dynamic_cast<Player*>(it->second) == nullptr)
-					ss << ", " << it->second->type();
+					ss << ", " << it->second;
+
 			ss << std::endl;
 		}
 		return ss.str();
