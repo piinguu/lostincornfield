@@ -6,6 +6,7 @@ using namespace licf;
 
 void generate_map(GameStuff & gs);
 void generate_presentation_map(GameStuff & gs);
+void mappa(Environment * e, Actor * a); 
 void print_introduction();
 
 int main()
@@ -13,6 +14,7 @@ int main()
 	//initialize
 	GameStuff gs;
 	generate_presentation_map(gs);
+	//generate_map(gs);
 	
 	Parser p(gs);
 	
@@ -169,13 +171,22 @@ void generate_presentation_map( GameStuff & gs)
 	c44->add_neighbor(c43, West);
 
 	// Place actors
-	c00->enter(s1);
-	c11->enter(f1);
-	c22->enter(gs.player);
-	c33->enter(s2);
-	c40->enter(f2);
-	c41->enter(b1);
-	c41->enter(d1);
+	mappa(c00, s1);
+//	c00->enter(s1);
+	mappa(c11, f1);
+//	c11->enter(f1);
+	mappa(c22, gs.player);
+//	c22->enter(gs.player);
+	mappa(c33, s2);
+//	c33->enter(s2);
+	mappa(c40, f2);
+//	c40->enter(f2);
+	mappa(c41, b1);
+//	c41->enter(b1);
+	mappa(c41, d1);
+//	c41->enter(d1);
+
+
 
 	// Place objects
 	c00->pick_up(key);
@@ -187,6 +198,13 @@ void generate_presentation_map( GameStuff & gs)
 	c40->pick_up(car);
 	c44->pick_up(coulter);
 }
+
+void mappa(Environment * e, Actor * a) 
+{
+	e->enter(a);
+	a->environment = e;
+}
+
 
 void generate_map(GameStuff & gs)
 {
