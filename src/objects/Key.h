@@ -6,7 +6,7 @@ namespace licf {
         double weight() const { return 2; }
 		double volume() const { return 1; }
 
-		std::string type() const { return "key"; }
+		std::string type() const { return "nyckel"; }
 
 		//void use(Actor *);
 	};

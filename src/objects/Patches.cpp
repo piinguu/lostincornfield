@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Patches::type() const {
-		return "patches";
+		return "plåster";
 	}
 }
 

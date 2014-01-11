@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Honey::type() const {
-		return "honey";
+		return "dunderhonung";
 	}
 }
 

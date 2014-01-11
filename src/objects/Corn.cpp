@@ -16,7 +16,7 @@ namespace licf {
 	}
 
 	std::string Corn::type() const {
-		return "corn";
+		return "majs";
 	}
 }
 
