@@ -17,10 +17,10 @@ int main()
 	
 	//run the game
 	print_introduction();
-	while (p.run()){
+	while (p.run())
 		for (auto it = gs.actors.begin(); it != gs.actors.end(); ++it)
-			(*it)->action();
-	}
+			if ((*it)->hp > 0)
+				(*it)->action();
 	
 	//wrap up
 	gs.cleanup();	
