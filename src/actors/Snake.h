@@ -6,8 +6,8 @@ namespace licf
 {
 	struct Snake : public Animal {
 		Snake() : Animal(50) {}
-		double max_hp() { return 50; }
-		std::string type() { return "orm"; }
+		double max_hp() const { return 50; }
+		std::string type() const { return "orm"; }
 	
 		void fight(Actor *);
 		void action();
