@@ -14,7 +14,7 @@ namespace licf
 		std::cout << "Du slår en gång... ";
 		a->hitted(this);
 		if (a->hp > 0)
-			std::cout << "fienden förlorar " << (a->hp - prev_hp) << std::endl;
+			std::cout << "fienden förlorar " << (prev_hp - a->hp) << std::endl;
 		else
 		{
 			std::cout << "fienden dör\n";
@@ -24,7 +24,7 @@ namespace licf
 		std::cout << "Fienden slår tillbaka... ";
 		Actor::hitted(a);
 		if (hp > 0)
-			std::cout << "du förlorar " << (hp - prev_hp) << std::endl;
+			std::cout << "du förlorar " << (prev_hp - hp) << std::endl;
 		else
 			std::cout << "du dör.\n";
 	}

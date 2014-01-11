@@ -14,9 +14,15 @@ namespace licf
 	
 	bool Player::hitted(Actor * a)
 	{
-		std::cout << "Du blir attackerad av en " << a->type() << "!\n";
+		double prev_hp = hp;
+		std::cout << "Du blir attackerad av en " << a->type()  << "! ";
 		
-		return Actor::hitted(a);
+		bool ret = Actor::hitted(a);
+		
+		if (hp > 0)
+			std::cout << "Du tar " << (prev_hp - hp) << " skada\n";
+		
+		return ret;
 	}
 	
 	bool Player::drop(std::string & s)

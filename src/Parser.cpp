@@ -133,7 +133,17 @@ namespace licf
 		return true;
 	}
 	
-	bool Parser::talk(std::string){return true;}
+	bool Parser::talk(std::string s)
+	{
+		Actor * a = gs.player->environment->get_actor(s);
+
+		if (a == nullptr)
+			std::cout << "Finns ingen sådan person...\n";
+		else
+			gs.player->talk_to(a);
+
+		return true;
+	}
 	
 	bool Parser::quit(std::string)
 	{
@@ -170,22 +180,32 @@ namespace licf
 		{
 			Object * eo = gs.player->environment->get_object(s);
 			Object * po = gs.player->get_object(s);
+			
+			Actor * a = gs.player->environment->get_actor(s);
 
-			if (eo == nullptr && po == nullptr)
-				std::cout << "Finns inget sådant objekt.\n";
-			else {
-				if (eo != nullptr) {
-					std::cout << "Objektet finns på marken.\n";
-					std::cout << eo->description() << std::endl;
-				}
-				if (po != nullptr) {
-					std::cout << "Objektet finns hos dig.\n";
-					std::cout << po->description() << std::endl;
-				}
+			if (eo == nullptr && po == nullptr && a == nullptr)
+			{
+				std::cout << "Finns inget sådant objekt eller sådan aktör.\n";
+				return true;
+			}
+			
+			if (eo != nullptr)
+				std::cout << eo->description() << std::endl;
+			else if (po != nullptr)
+				std::cout << po->description() << std::endl;
+			else
+			{
+				std::cout << "--- " << a << " ---\n";
+				std::cout 	<< "Hälsa: " << gs.player->hp << "/" 
+							<< gs.player->max_hp() << std::endl;
+				std::cout 	<< "Attackstyrka: " << gs.player->attack_rate
+							<< std::endl;
+				std::cout << "------------\n";
 			}
 		}
 		return true;
 	}
+	
 	
 	bool Parser::use(std::string s)
 	{
