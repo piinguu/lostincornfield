@@ -57,10 +57,10 @@ namespace licf
 					for (auto it = objects.begin(); it != objects.end(); ++it){
 						Object * o = *it;
 						Weapon * w = dynamic_cast<Weapon*>(o);
-						if (w->attack_rate() > max_power)
+						if (w && w->attack_rate() > max_power)
 							max_power = w->attack_rate();
 					}
-					
+
 					double diff = attack_rate - max_power;
 					if ((diff < 0.1) && (-diff < 0.1)){ //drop changed attack rate
 						attack_rate = max_power;

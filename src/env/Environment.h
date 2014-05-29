@@ -17,7 +17,7 @@ namespace licf
 		std::map<Direction, Environment*> neighbors;
 		std::vector<Object*> objects;
 	public:
-
+		~Environment(){while (!objects.empty()) delete objects.back(), objects.pop_back();}
 		std::map<std::string, Actor*> actors;
 
 		bool add_neighbor(Environment*, Direction);

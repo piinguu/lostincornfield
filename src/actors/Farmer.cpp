@@ -4,6 +4,7 @@
 
 #include "Bee.h"
 #include "../env/Environment.h"
+#include "../objects/Honey.h"
 
 namespace licf
 {
@@ -18,7 +19,10 @@ namespace licf
 				++bees;
 			}
 		}
-		//TODO: create honey if bees > 1?
-		
+		if (bees)
+		{
+			Honey * h = new Honey();
+			environment->pick_up(h);			
+		}		
 	}
 }

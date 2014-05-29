@@ -19,6 +19,7 @@ namespace licf{
 		int next_rand(int limit);
 
 	public:
+		~Actor(){while (!objects.empty()) delete objects.back(), objects.pop_back();}
 		Environment * environment;
 		double hp, attack_rate;
 		

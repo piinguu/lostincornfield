@@ -91,6 +91,8 @@ void generate_presentation_map( GameStuff & gs)
 	Actor * b1 = new Bee();
 	Actor * d1 = new Dog(4);
 	Actor * bird = new Bird();
+	Actor * sm1 = new Smith("John");
+	Actor * sm2 = new Smith("Jane");
 
 	gs.actors.push_back(gs.player);
 	gs.actors.push_back(s1);
@@ -100,7 +102,9 @@ void generate_presentation_map( GameStuff & gs)
 	gs.actors.push_back(b1);
 	gs.actors.push_back(d1);
 	gs.actors.push_back(bird);
-
+	gs.actors.push_back(sm1);
+	gs.actors.push_back(sm2);
+	
 	// Generate objects
 	Object * key = new Key();
 	Object * backpack = new Backpack(75, 50);
@@ -111,6 +115,7 @@ void generate_presentation_map( GameStuff & gs)
 	Object * car = new Car();
 	Object * coulter = new Coulter();
 
+/*
 	gs.objects.push_back(key);
 	gs.objects.push_back(backpack);
 	gs.objects.push_back(honey1);
@@ -119,7 +124,7 @@ void generate_presentation_map( GameStuff & gs)
 	gs.objects.push_back(knife);
 	gs.objects.push_back(car);
 	gs.objects.push_back(coulter);
-
+*/
 	// Generate all neighbors and place all actors and objects
 
 	// Neighbors
@@ -177,19 +182,23 @@ void generate_presentation_map( GameStuff & gs)
 
 	// Place actors
 	mappa(c00, s1);
-	mappa(c11, f1);
+	//mappa(c11, f1);
+	mappa(c22, f1);
 	mappa(c22, gs.player);
 	mappa(c33, s2);
 	mappa(c40, f2);
 	mappa(c41, b1);
 	mappa(c41, d1);
 	mappa(c32, bird);
+	mappa(c23, sm2);
+	mappa(c43, sm1);
 
 
 	// Place objects
 	c00->pick_up(key);
 	c02->pick_up(honey2);
-	c21->pick_up(backpack);
+	//c21->pick_up(backpack);
+	c22->pick_up(backpack);
 	c23->pick_up(honey1);
 	c30->pick_up(knife);
 	c31->pick_up(honey3);
@@ -216,7 +225,7 @@ void generate_map(GameStuff & gs)
 	gs.map.push_back(goal);
 	
 	Object * h = new Honey();
-	gs.objects.push_back(h);
+	//gs.objects.push_back(h);
 	
 	Actor * farmer = new Farmer("Pelle"); //TODO: this causes memory leak. WHYYY??
 	Actor * bee = new Bee();

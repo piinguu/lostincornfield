@@ -21,5 +21,7 @@ namespace licf {
 		a->drop(this);
 		//remove from environment
 		a->environment->drop(this);
+		//delete
+		delete this;
 	}
 }
